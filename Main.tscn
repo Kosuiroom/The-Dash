@@ -55,9 +55,9 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [node name="Main" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -0.520279
+margin_left = -1.22739
 margin_top = -0.520279
-margin_right = 1022.48
+margin_right = 1021.77
 margin_bottom = 595.48
 texture = ExtResource( 2 )
 expand = true
@@ -77,13 +77,13 @@ dashSpeed = 4000
 position = Vector2( 0, 48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 8.76183, 304.126 )
+position = Vector2( 11.9402, 257.728 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 1026.11, 284.648 )
+position = Vector2( 1008.32, 303.937 )
 shape = SubResource( 1 )
 
 [node name="Obj_Box01" type="StaticBody2D" parent="."]

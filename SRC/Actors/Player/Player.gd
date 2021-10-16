@@ -15,10 +15,16 @@ var direction = 0
 var notMoving = true
 
 func _physics_process(delta):
+
 	apply_gravity(delta)
 	get_input(delta)
 	##print(velocity.x)
 	move_and_slide(velocity, UP)
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		if collision.collider.name == "MudCrawler":
+			print("I collided with ", collision.collider.name)
 	
 func apply_gravity(delta : float) -> void:
 	velocity.y = gravity * delta;
