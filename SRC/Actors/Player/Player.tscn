@@ -4,17 +4,21 @@
 [ext_resource path="res://SRC/Actors/Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 58.362, 61.8499 )
+extents = Vector2( 21.0513, 28.8979 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 91.2494, 72.0569 )
+position = Vector2( -56.1132, -55.075 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 56.4208, 54.9247 )
-scale = Vector2( 4.15719, 4.03415 )
+position = Vector2( 50.9407, 58.9906 )
+scale = Vector2( 1.73756, 1.94598 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 54.4916, 55.1215 )
+position = Vector2( 50.3156, 57.6695 )
 shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 56.6397, 51.9005 )
+current = true
