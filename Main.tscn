@@ -3,15 +3,15 @@
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 416.634, 10 )
+extents = Vector2( 546.744, 14.056 )
 
 [node name="Main" type="Node"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 464.253, 539.447 )
-shape = SubResource( 1 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 432.901, 380.985 )
+position = Vector2( 411.482, 431.382 )
+
+[node name="Block2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
+position = Vector2( 513.421, 580.876 )
+shape = SubResource( 1 )
