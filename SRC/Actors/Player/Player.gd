@@ -1,14 +1,15 @@
 extends KinematicBody2D
 
-var Speed : float = 0.0
 export var maxSpeed : float = 600.0
 export var acceleration : float = 200.0
 export var jump : float = 3000.0
 export var gravity : float = 2500.0
+export var dashSpeed = 1000
+
 const UP : Vector2 = Vector2.UP
+var Speed : float = 0.0
 var velocity = Vector2()
 var dashing = false
-export var dashSpeed = 1000
 var lerprate = 0.1
 var direction = 0
 var notMoving = true
@@ -16,7 +17,7 @@ var notMoving = true
 func _physics_process(delta):
 	apply_gravity(delta)
 	get_input(delta)
-	print(velocity.x)
+	##print(velocity.x)
 	move_and_slide(velocity, UP)
 	
 func apply_gravity(delta : float) -> void:
@@ -36,7 +37,7 @@ func get_input(delta):
 	else:
 		notMoving = true
 		Speed = 0
-		velocity.x = 0
+		velocity.x = lerp(velocity.x,Speed,lerprate)
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("player_jump"):
@@ -51,7 +52,7 @@ func speed_calc(delta):
 		Speed = maxSpeed
 		
 func dash() -> void:
-	print("dash")
+	##print("dash")
 	dashing = true
 	velocity.x = dashSpeed * direction
 	yield(get_tree().create_timer(0.3), "timeout")

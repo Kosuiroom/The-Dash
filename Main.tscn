@@ -1,20 +1,21 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Background/Green.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Items/Boxes/Box2/Idle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Terrain/Terrain (16x16).png" type="Texture" id=4]
+[ext_resource path="res://SRC/Actors/Neutral/MudCrawler/MudCrawler.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.332, 302.877 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.2747, 9.23517 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=4]
 0/name = "Terrain (16x16).png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
@@ -25,14 +26,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 4 )
+0/shape = SubResource( 3 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -65,7 +66,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 449.194, 435.739 )
+position = Vector2( 415.23, 384.334 )
 maxSpeed = 400.0
 acceleration = 1000.0
 jump = 8000.0
@@ -77,13 +78,13 @@ position = Vector2( 0, 48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 8.76183, 304.126 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( 1026.11, 284.648 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Obj_Box01" type="StaticBody2D" parent="."]
 position = Vector2( 640, 560.195 )
@@ -98,7 +99,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obj_Box01"]
 position = Vector2( -0.0050354, 0.081665 )
 scale = Vector2( 0.96038, 1.08 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Obj_Box02" type="StaticBody2D" parent="."]
 position = Vector2( 720, 544 )
@@ -113,11 +114,14 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obj_Box02"]
 position = Vector2( -0.0050354, 0.081665 )
 scale = Vector2( 0.96038, 1.08 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, 24 )
-tile_set = SubResource( 5 )
+tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 2293760, 0, 0, 2293761, 536870912, 0, 2293762, 536870912, 0, 2293763, 536870912, 0, 2293764, 536870912, 0, 2293765, 536870912, 0, 2293766, 536870912, 0, 2293767, 536870912, 0, 2293768, 536870912, 0, 2293769, 536870912, 0, 2293770, 536870912, 0, 2293771, 536870912, 0, 2293772, 536870912, 0, 2293773, 536870912, 0, 2293774, 536870912, 0, 2293775, 536870912, 0, 2293776, 536870912, 0, 2293777, 536870912, 0, 2293778, 536870912, 0, 2293779, 536870912, 0, 2293780, 536870912, 0, 2293781, 536870912, 0, 2293782, 536870912, 0, 2293783, 536870912, 0, 2293784, 536870912, 0, 2293785, 536870912, 0, 2293786, 536870912, 0, 2293787, 536870912, 0, 2293788, 536870912, 0, 2293789, 536870912, 0, 2293790, 536870912, 0, 2293791, 536870912, 0, 2293792, 536870912, 0, 2293793, 536870912, 0, 2293794, 536870912, 0, 2293795, 536870912, 0, 2293796, 536870912, 0, 2293797, 536870912, 0, 2293798, 536870912, 0, 2293799, 536870912, 0, 2293800, 536870912, 0, 2293801, 536870912, 0, 2293802, 536870912, 0, 2293803, 536870912, 0, 2293804, 536870912, 0, 2293805, 536870912, 0, 2293806, 536870912, 0, 2293807, 536870912, 0, 2293808, 536870912, 0, 2293809, 536870912, 0, 2293810, 536870912, 0, 2293811, 536870912, 0, 2293812, 536870912, 0, 2293813, 536870912, 0, 2293814, 536870912, 0, 2293815, 536870912, 0, 2293816, 536870912, 0, 2293817, 536870912, 0, 2293818, 536870912, 0, 2293819, 536870912, 0, 2293820, 536870912, 0, 2293821, 536870912, 0, 2293822, 536870912, 0 )
+
+[node name="MudCrawler" parent="." instance=ExtResource( 5 )]
+position = Vector2( 568.634, 403.59 )
