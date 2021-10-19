@@ -48,6 +48,7 @@ func get_input(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("player_jump"):
 			velocity.y -= jump
+			$Player_Jump.play()
 			
 	if Input.is_action_just_pressed("Dash") && dashing == false && notMoving == false:
 		dash()

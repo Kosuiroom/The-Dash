@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Sprites/Test/Sprite-0001.png" type="Texture" id=1]
 [ext_resource path="res://SRC/Actors/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound/Jump.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.0513, 28.8979 )
@@ -22,3 +23,6 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 56.6397, 51.9005 )
 current = true
+
+[node name="Player_Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
