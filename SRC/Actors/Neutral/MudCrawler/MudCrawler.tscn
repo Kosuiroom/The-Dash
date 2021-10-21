@@ -7,6 +7,7 @@
 extents = Vector2( 8.61267, 7.42242 )
 
 [node name="MudCrawler" type="KinematicBody2D"]
+position = Vector2( 400, 240 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
