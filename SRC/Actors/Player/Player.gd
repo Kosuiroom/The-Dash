@@ -33,14 +33,14 @@ func apply_gravity(delta : float) -> void:
 func get_input(delta):
 	if Input.is_action_pressed("mvLeft"):
 		animation.play("Running")
-		$Sprite.flip_h = true
+		$Grounder.flip_h = true
 		direction = -1
 		notMoving = false
 		speed_calc(delta)
 		velocity.x = lerp(velocity.x,-Speed,lerprate)
 	elif Input.is_action_pressed("mvRight"):
 		animation.play("Running")
-		$Sprite.flip_h = false
+		$Grounder.flip_h = false
 		direction = 1
 		notMoving = false
 		speed_calc(delta)
