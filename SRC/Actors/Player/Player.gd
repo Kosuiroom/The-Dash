@@ -1,14 +1,13 @@
 extends KinematicBody2D
 
+var velocity = Vector2(0,0)
 export var maxSpeed : float = 600.0
 export var acceleration : float = 200.0
-export var jump : float = 3000.0
-export var gravity : float = 2500.0
-export var dashSpeed = 1000
+export var jump = 900
+export var gravity = 35
+var moveSpeed = 180
 
-const UP : Vector2 = Vector2.UP
-var Speed : float = 0.0
-var velocity = Vector2()
+export var dashSpeed = 1000
 var dashing = false
 var lerprate = 0.1
 var direction = 0
@@ -17,18 +16,19 @@ onready var animation = $AnimationPlayer
 
 func _physics_process(delta):
 
-	apply_gravity(delta)
+	#apply_gravity(delta)
 	get_input(delta)
 	##print(velocity.x)
-	move_and_slide(velocity, UP)
+	velocity.y = velocity.y + gravity;
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		if collision.collider.name == "MudCrawler":
 			print("I collided with ", collision.collider.name)
 	
-func apply_gravity(delta : float) -> void:
-	velocity.y = gravity * delta;
+#func apply_gravity(delta : float) -> void:
+	
 
 func get_input(delta):
 	if Input.is_action_pressed("mvLeft"):
@@ -37,19 +37,19 @@ func get_input(delta):
 		direction = -1
 		notMoving = false
 		speed_calc(delta)
-		velocity.x = lerp(velocity.x,-Speed,lerprate)
+		velocity.x = lerp(velocity.x,-moveSpeed,lerprate)
 	elif Input.is_action_pressed("mvRight"):
 		animation.play("Running")
 		$Grounder.flip_h = false
 		direction = 1
 		notMoving = false
 		speed_calc(delta)
-		velocity.x = lerp(velocity.x,Speed,lerprate)
+		velocity.x = lerp(velocity.x,moveSpeed,lerprate)
 	else:
 		notMoving = true
 		animation.play("Idle")
-		Speed = 0
-		velocity.x = lerp(velocity.x,Speed,lerprate)
+		moveSpeed = 0
+		velocity.x = lerp(velocity.x,moveSpeed,lerprate)
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("player_jump"):
@@ -62,9 +62,9 @@ func get_input(delta):
 		dash()
 
 func speed_calc(delta): 
-	Speed += acceleration * delta
-	if Speed > maxSpeed:
-		Speed = maxSpeed
+	moveSpeed += acceleration * delta
+	if moveSpeed > maxSpeed:
+		moveSpeed = maxSpeed
 		
 func dash() -> void:
 	##print("dash")
