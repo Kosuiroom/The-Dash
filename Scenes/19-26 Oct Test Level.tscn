@@ -852,41 +852,12 @@ points = PoolVector2Array( 0, 16, 192, 16, 192, 32, 0, 32 )
 } ]
 11/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=39]
+[sub_resource type="ConvexPolygonShape2D" id=36]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
-[sub_resource type="TileSet" id=40]
+[sub_resource type="TileSet" id=37]
 0/name = "Dust Particle.png 0"
 0/texture = ExtResource( 13 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 16, 16 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 39 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 39 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-
-[sub_resource type="ConvexPolygonShape2D" id=36]
-points = PoolVector2Array( 16, 16, 0, 16, 0, 16 )
-
-[sub_resource type="ConvexPolygonShape2D" id=37]
-points = PoolVector2Array( 0.174843, 15.8409, 0.336349, 15.6794, 3.08195, 9.86517, 11.6417, 9.86517, 15.8409, 16 )
-
-[sub_resource type="TileSet" id=38]
-0/name = "Idle.png 0"
-0/texture = ExtResource( 12 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 16, 16 )
@@ -904,11 +875,40 @@ points = PoolVector2Array( 0.174843, 15.8409, 0.336349, 15.6794, 3.08195, 9.8651
 "one_way_margin": 1.0,
 "shape": SubResource( 36 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 0.174843, 15.8409, 0.336349, 15.6794, 3.08195, 9.86517, 11.6417, 9.86517, 15.8409, 16 )
+
+[sub_resource type="TileSet" id=40]
+0/name = "Idle.png 0"
+0/texture = ExtResource( 12 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 38 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 38 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 37 ),
+"shape": SubResource( 39 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -918,10 +918,22 @@ points = PoolVector2Array( 0.174843, 15.8409, 0.336349, 15.6794, 3.08195, 9.8651
 [node name="ParallaxBackground01" type="ParallaxBackground" parent="."]
 
 [node name="Parallaxlayer" type="ParallaxLayer" parent="ParallaxBackground01"]
-motion_mirroring = Vector2( 16, 16 )
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground01/Parallaxlayer"]
+margin_top = -304.0
+margin_right = 3472.0
+margin_bottom = 1040.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground01/Parallaxlayer"]
-position = Vector2( 1352, 288 )
+visible = false
+position = Vector2( 512, 300 )
 texture = ExtResource( 4 )
 
 [node name="Parallaxlayer2" type="ParallaxLayer" parent="ParallaxBackground01"]
@@ -980,7 +992,9 @@ show_collision = true
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1384, 232 )
+position = Vector2( 1440, 264 )
+jump = 900
+gravity = 35
 
 [node name="Level_1_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -994,14 +1008,14 @@ position = Vector2( 1808, 336 )
 position = Vector2( 2504, 544 )
 
 [node name="Dash_Objects" type="TileMap" parent="."]
-tile_set = SubResource( 40 )
+tile_set = SubResource( 37 )
 cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 2556263, 0, 0 )
 
 [node name="Traps" type="TileMap" parent="."]
-tile_set = SubResource( 38 )
+tile_set = SubResource( 40 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
