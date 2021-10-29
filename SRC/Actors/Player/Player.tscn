@@ -6,17 +6,17 @@
 [ext_resource path="res://Assets/Sprites/Player/Player_Run_Sprite_Test.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Player/Player_Jump_Sprite_Test.png" type="Texture" id=6]
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Running",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -24,10 +24,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.86971, 8.3759 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.2405, 2.7278 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -36,19 +36,19 @@ script = ExtResource( 2 )
 
 [node name="AnimatedPlayer" type="AnimatedSprite" parent="."]
 position = Vector2( 58.7463, 55.5441 )
-frames = SubResource( 26 )
+frames = SubResource( 1 )
 animation = "Idle"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 57.6931, 62.6874 )
 scale = Vector2( 1.82886, 0.782358 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 56.7993, 72.1476 )
 rotation = -3.14008
 scale = Vector2( 0.65857, 1.07724 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 58.7463, 55.2734 )
