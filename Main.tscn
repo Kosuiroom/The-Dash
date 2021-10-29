@@ -64,11 +64,6 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 415.23, 384.334 )
-maxSpeed = 600.0
-acceleration = 200.0
-jump = 900
-gravity = 35
-dashSpeed = 1000
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, 48 )
