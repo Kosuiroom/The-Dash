@@ -1,12 +1,6 @@
 #extends "res://SRC/Actors/Player/Actor.gd"
 #onready var animated_player = $AnimatedPlayer
-#
-#var velocity = Vector2.ZERO
-#export var max_run = 100
-#export var run_accel = 800
-#export var gravity = 40
-#export var max_fall = 160
-#export var jump_force = -160
+
 #
 #func _process(delta):
 #	var direction = sign(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
@@ -100,11 +94,11 @@ func get_input(delta):
 	var jumping = Input.is_action_pressed("player_jump")
 	print(jumping)
 	if jumping && is_on_floor():
-		velocity.y = jump
+		velocity.y -= jump
 		local_hold_time = jump_hold_time
 	elif local_hold_time > 0:
 		if jumping:
-			velocity.y = jump
+			velocity.y = -jump
 		else:
 			local_hold_time = 0
 
