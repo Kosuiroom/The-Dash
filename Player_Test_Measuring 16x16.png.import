@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player Character Sketch.png-c839bdbf5b78e07fbbde844d178dfe81.stex"
+path="res://.import/Player_Test_Measuring 16x16.png-3623e5eb2a14e00ddac7eaa0fe315b8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SRC/Actors/Player Character Sketch.png"
-dest_files=[ "res://.import/Player Character Sketch.png-c839bdbf5b78e07fbbde844d178dfe81.stex" ]
+source_file="res://Player_Test_Measuring 16x16.png"
+dest_files=[ "res://.import/Player_Test_Measuring 16x16.png-3623e5eb2a14e00ddac7eaa0fe315b8d.stex" ]
 
 [params]
 

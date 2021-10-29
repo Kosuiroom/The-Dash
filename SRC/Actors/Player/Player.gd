@@ -1,3 +1,52 @@
+#extends "res://SRC/Actors/Player/Actor.gd"
+#onready var animated_player = $AnimatedPlayer
+#
+#var velocity = Vector2.ZERO
+#export var max_run = 100
+#export var run_accel = 800
+#export var gravity = 40
+#export var max_fall = 160
+#export var jump_force = -160
+#export var jump_hold_time = 0.2
+#export var local_hold_time = 0
+#
+#func _physics_process(delta):
+#	global_position.y = velocity.y + gravity
+#
+#func _process(delta):
+#	var direction = sign(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
+#	#var on_ground = global_position.y >= 160
+#
+#	var jumping = Input.is_action_pressed("player_jump")
+#	if jumping && is_on_floor():
+#		velocity.y = jump_force
+#		local_hold_time = jump_hold_time
+#	elif local_hold_time > 0:
+#		if jumping:
+#			velocity.y = jump_force
+#		else:
+#			local_hold_time = 0
+#
+#	local_hold_time -= delta
+#
+#	if direction > 0:
+#		animated_player.flip_h = false
+#	elif direction < 0:
+#		animated_player.flip_h = true
+#
+#	if direction !=0:
+#		animated_player.play ("Running")
+#	else:
+#		animated_player.play("Idle")
+#
+#
+#	velocity.x = move_toward(velocity.x, max_run * direction, run_accel * delta)
+#	velocity.y = move_toward(velocity.y, max_fall, gravity * delta)
+#
+#	move_x(velocity.x * delta)
+#	move_y(velocity.y * delta)
+	
+
 extends KinematicBody2D
 
 var velocity = Vector2(0,0)
@@ -12,7 +61,9 @@ var dashing = false
 var lerprate = 0.1
 var direction = 0
 var notMoving = true
-onready var animation = $AnimationPlayer
+var notJumping = true
+
+onready var animation = $AnimatedPlayer
 
 func _physics_process(delta):
 
@@ -33,14 +84,14 @@ func _physics_process(delta):
 func get_input(delta):
 	if Input.is_action_pressed("mvLeft"):
 		animation.play("Running")
-		$Grounder.flip_h = true
+		$AnimatedPlayer.flip_h = true
 		direction = -1
 		notMoving = false
 		speed_calc(delta)
 		velocity.x = lerp(velocity.x,-moveSpeed,lerprate)
 	elif Input.is_action_pressed("mvRight"):
 		animation.play("Running")
-		$Grounder.flip_h = false
+		$AnimatedPlayer.flip_h = false
 		direction = 1
 		notMoving = false
 		speed_calc(delta)
@@ -52,10 +103,13 @@ func get_input(delta):
 		velocity.x = lerp(velocity.x,moveSpeed,lerprate)
 		
 	if is_on_floor():
-		if Input.is_action_just_pressed("player_jump"):
-			animation.play("Jump")
-			velocity.y -= jump
-			$Player_Jump.play()
+		if Input.is_action_pressed("player_jump"):
+			notJumping = false
+			if notJumping == false:
+				animation.play("Jumping")
+				velocity.y -= jump
+				$Player_Jump.play()
+				notJumping = true
 		
 			
 	if Input.is_action_just_pressed("Dash") && dashing == false && notMoving == false:
@@ -73,3 +127,5 @@ func dash() -> void:
 	yield(get_tree().create_timer(0.3), "timeout")
 	dashing = false
 	pass
+	
+	
