@@ -2,6 +2,7 @@ extends Actor
 
 export var dashSpeed: = 1000.0
 
+
 var dashing = false
 var lerprate = 0.1
 var notMoving = true
@@ -21,10 +22,12 @@ func _physics_process(delta):
 			dash()
 	
 	if _direction == Vector2(1,0):
+		$PlayerAnimatedSprite.flip_h = false
 		print("test")
 		#animation.play("Running")
 		#$AnimatedPlayer.flip_h = false
 	elif _direction == Vector2(-1,0):
+		$PlayerAnimatedSprite.flip_h = true
 		print("test")
 		#animation.play("Running")
 		#$AnimatedPlayer.flip_h = true
@@ -39,6 +42,7 @@ func get_direction() -> Vector2:
 		Input.get_action_strength("mvRight") - Input.get_action_strength("mvLeft"),
 		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
 	)
+	
 
 func calc_move_velocity(
 		lin_velocity: Vector2,
