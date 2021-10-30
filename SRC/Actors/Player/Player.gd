@@ -32,7 +32,6 @@ func _physics_process(delta):
 func dash() -> void:
 	print("dash")
 	dashing = true
-	
 	pass
 	
 func get_direction() -> Vector2:
@@ -57,7 +56,7 @@ func calc_move_velocity(
 	if is_JumpCancelled and not is_on_floor():
 		new_velocity.y = 0.0
 	if is_dashing:
-		new_velocity.x = dashSpeed * get_direction()
+		new_velocity.x = dashSpeed * direction.x
 		dashing = false
 	return new_velocity
 
