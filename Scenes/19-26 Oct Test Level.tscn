@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Sprites/Test/Spr_Background_Cave.png" type="Texture" id=4]
 [ext_resource path="res://SRC/Background/CloudLayer.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-04.png" type="Texture" id=6]
-[ext_resource path="res://SRC/Actors/Player/Player3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Virtual Guy/Idle (32x32).png" type="Texture" id=8]
 [ext_resource path="res://Assets/Music/Home.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Sprites/Test/TileSet.png" type="Texture" id=10]
@@ -18,7 +18,6 @@
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Pink Man/Idle (32x32).png" type="Texture" id=16]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-00.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Virtual Guy/Run (32x32).png" type="Texture" id=19]
-
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -1034,21 +1033,19 @@ position = Vector2( 6648, -880 )
 [node name="NPC_Virtual_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 7208, -1344 )
 frames = SubResource( 50 )
-frame = 3
 playing = true
 flip_h = true
 
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 7336, -1344 )
 frames = SubResource( 62 )
-frame = 6
+frame = 2
 playing = true
 flip_h = true
 
 [node name="NPC_Ninja_Frog" type="AnimatedSprite" parent="."]
 position = Vector2( 7280, -1344 )
 frames = SubResource( 74 )
-frame = 4
 playing = true
 flip_h = true
 
