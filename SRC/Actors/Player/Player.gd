@@ -1,121 +1,65 @@
-#extends "res://SRC/Actors/Player/Actor.gd"
-#onready var animated_player = $AnimatedPlayer
+extends Actor
 
-#
-#func _process(delta):
-#	var direction = sign(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
-#	#var on_ground = global_position.y >= 160
-#
-#
-#	if direction > 0:
-#		animated_player.flip_h = false
-#	elif direction < 0:
-#		animated_player.flip_h = true
-#
-#	if direction !=0:
-#		animated_player.play ("Running")
-#	else:
-#		animated_player.play("Idle")
-#
-#
-#	velocity.x = move_toward(velocity.x, max_run * direction, run_accel * delta)
-#	velocity.y = move_toward(velocity.y, max_fall, gravity * delta)
-#
-#	move_x(velocity.x * delta)
-#	move_y(velocity.y * delta)
-	
+export var dashSpeed: = 1000.0
 
-extends KinematicBody2D
-
-var velocity = Vector2(0,0)
-export var maxSpeed  = 600
-export var acceleration  = 200
-export var jump = 900
-export var gravity = 35
-export var jump_hold_time = 0.2
-export var local_hold_time = 0
-var moveSpeed = 180
-
-export var dashSpeed = 1000
 var dashing = false
 var lerprate = 0.1
-var direction = 0
 var notMoving = true
-
 onready var animation = $AnimatedPlayer
 
 func _physics_process(delta):
-	get_input(delta)
-	##print(velocity.x)
-	velocity.y = velocity.y + gravity;
-	velocity = move_and_slide(velocity, Vector2.UP)
+	var _direction: = get_direction()
+	var is_jump_cancelled: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		if collision.collider.name == "MudCrawler":
-			print("I collided with ", collision.collider.name)
+	velocity = calc_move_velocity(velocity,_direction, speed, is_jump_cancelled, dashing)
+	velocity = move_and_slide(velocity,Vector2.UP)
 	
-func get_input(delta):
-	if Input.is_action_pressed("mvLeft"):
-		animation.play("Running")
-		$AnimatedPlayer.flip_h = true
-		direction = -1
+	if _direction != Vector2(0,0):
+		print("notmoving ", notMoving)
 		notMoving = false
-		speed_calc(delta)
-		velocity.x = lerp(velocity.x,-moveSpeed,lerprate)
-	elif Input.is_action_pressed("mvRight"):
+		if Input.is_action_just_pressed("Dash") && dashing == false && notMoving == false:
+			dash()
+	
+	if _direction == Vector2(1,0):
 		animation.play("Running")
 		$AnimatedPlayer.flip_h = false
-		direction = 1
-		notMoving = false
-		speed_calc(delta)
-		velocity.x = lerp(velocity.x,moveSpeed,lerprate)
-	else:
-		notMoving = true
-		animation.play("Idle")
-		moveSpeed = 0
-		velocity.x = lerp(velocity.x,moveSpeed,lerprate)
-		
-#	if is_on_floor():
-#		if Input.is_action_pressed("player_jump"):
-#			Jumping = true
-#			animation.play("Jumping")
-#			velocity.y -= jump
-#			local_hold_time = jump_hold_time
-#			#$Player_Jump.play()
-#			if local_hold_time > 0:
-#				if Jumping:
-#					velocity.y = jump
-#				else:
-#					local_hold_time = 0
-#
-#			local_hold_time -= delta
-				
-	var jumping = Input.is_action_pressed("player_jump")
-	print(jumping)
-	if jumping && is_on_floor():
-		velocity.y -= jump
-		local_hold_time = jump_hold_time
-	elif local_hold_time > 0:
-		if jumping:
-			velocity.y = -jump
-		else:
-			local_hold_time = 0
-
-	local_hold_time -= delta
-	print(local_hold_time)
-	
-	if Input.is_action_just_pressed("Dash") && dashing == false && notMoving == false:
-		dash()
-
-func speed_calc(delta): 
-	moveSpeed += acceleration * delta
-	if moveSpeed > maxSpeed:
-		moveSpeed = maxSpeed
+	elif _direction == Vector2(-1,0):
+		animation.play("Running")
+		$AnimatedPlayer.flip_h = true
 		
 func dash() -> void:
+	print("dash")
 	dashing = true
-	velocity.x = dashSpeed * direction
-	yield(get_tree().create_timer(0.3), "timeout")
-	dashing = false
 	pass
+	
+func get_direction() -> Vector2:
+	return Vector2 (
+		Input.get_action_strength("mvRight") - Input.get_action_strength("mvLeft"),
+		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
+	)
+
+func calc_move_velocity(
+		lin_velocity: Vector2,
+		direction: Vector2,
+		mvSpeed: Vector2,
+		is_JumpCancelled: bool,
+		is_dashing: bool
+	) -> Vector2:
+		
+	var new_velocity: = lin_velocity
+	new_velocity.x = lerp(new_velocity.x, mvSpeed.x * direction.x, lerprate)
+	new_velocity.y += gravity * get_physics_process_delta_time()
+	if direction.y == -1.0:
+		new_velocity.y = mvSpeed.y * direction.y
+	if is_JumpCancelled and not is_on_floor():
+		new_velocity.y = 0.0
+	if is_dashing:
+		new_velocity.x = dashSpeed
+		dashing = false
+	return new_velocity
+
+
+#	var collision = move_and_collide(velocity * delta)
+#	if collision:
+#		if collision.collider.name == "MudCrawler":
+#			print("I collided with ", collision.collider.name)

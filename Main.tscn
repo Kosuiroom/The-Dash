@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Background/Green.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Terrain/Terrain (16x16).png" type="Texture" id=4]
 [ext_resource path="res://SRC/Actors/Neutral/MudCrawler/MudCrawler.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Music/Home.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.332, 302.877 )
@@ -63,7 +62,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 415.23, 384.334 )
+position = Vector2( 392.635, 461.633 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, 48 )
@@ -89,6 +88,4 @@ tile_data = PoolIntArray( 2293760, 0, 0, 2293761, 536870912, 0, 2293762, 5368709
 position = Vector2( 568.634, 403.59 )
 
 [node name="Level_1_Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -9.098
 autoplay = true
