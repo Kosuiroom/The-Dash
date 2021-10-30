@@ -1,74 +1,26 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Assets/Sprites/Player/Player_Idle_Sprite_Test.png" type="Texture" id=1]
 [ext_resource path="res://SRC/Actors/Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sprites/Player/Player_Idle_Sprite_Test.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Player/Player_Run_Sprite_Test.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Player/Player_Jump_Sprite_Test.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-<<<<<<< HEAD
-=======
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Running",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
-}, {
->>>>>>> c495bc2a4d41c59ca067a739027740617938fc90
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Running",
+"name": "default",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2.86971, 8.3759 )
+extents = Vector2( 10, 12.8619 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.2405, 2.7278 )
-
-[node name="Player" type="KinematicBody2D"]
-position = Vector2( -26.7463, -55.2734 )
+[node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="AnimatedPlayer" type="AnimatedSprite" parent="."]
-position = Vector2( 58.7463, 55.5441 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1.05946, -5.56218 )
 frames = SubResource( 1 )
-animation = "Idle"
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 57.6931, 62.6874 )
-scale = Vector2( 1.82886, 0.782358 )
-shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 56.7993, 72.1476 )
-rotation = -3.14008
-scale = Vector2( 0.65857, 1.07724 )
-shape = SubResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 58.7463, 55.2734 )
-scale = Vector2( 1.04414, 0.927895 )
-current = true
-zoom = Vector2( 0.4, 0.4 )
-offset_h = 0.15
-offset_v = -0.26
-drag_margin_left = 0.53
-
-[node name="Player_Jump" type="AudioStreamPlayer" parent="."]
+position = Vector2( -0.529732, 1.05947 )
+shape = SubResource( 2 )

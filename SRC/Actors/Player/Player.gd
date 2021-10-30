@@ -5,7 +5,7 @@ export var dashSpeed: = 1000.0
 var dashing = false
 var lerprate = 0.1
 var notMoving = true
-onready var animation = $AnimatedPlayer
+#onready var animation = $AnimatedPlayer
 
 func _physics_process(delta):
 	var _direction: = get_direction()
