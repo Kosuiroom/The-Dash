@@ -21,11 +21,13 @@ func _physics_process(delta):
 			dash()
 	
 	if _direction == Vector2(1,0):
-		animation.play("Running")
-		$AnimatedPlayer.flip_h = false
+		print("test")
+		#animation.play("Running")
+		#$AnimatedPlayer.flip_h = false
 	elif _direction == Vector2(-1,0):
-		animation.play("Running")
-		$AnimatedPlayer.flip_h = true
+		print("test")
+		#animation.play("Running")
+		#$AnimatedPlayer.flip_h = true
 		
 func dash() -> void:
 	print("dash")
