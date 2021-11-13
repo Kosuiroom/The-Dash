@@ -6,6 +6,7 @@ var dashing = false
 var lerprate = 0.1
 var notMoving = true
 export var playerSpeed = Vector2(500,500)
+signal _dashedInto(dashing)
 #onready var animation = $AnimatedPlayer
 
 func _physics_process(delta):
@@ -16,7 +17,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 	if _direction != Vector2(0,0):
-		print("notmoving ", notMoving)
+		#print("notmoving ", notMoving)
 		notMoving = false
 		if Input.is_action_just_pressed("Dash") && dashing == false && notMoving == false:
 			dash()
@@ -29,8 +30,9 @@ func _physics_process(delta):
 		#$AnimatedPlayer.flip_h = true
 		
 func dash() -> void:
-	print("dash")
+	#print("dash")
 	dashing = true
+	emit_signal("_dashedInto",dashing)
 	pass
 	
 func get_direction() -> Vector2:
@@ -58,7 +60,6 @@ func calc_move_velocity(
 		new_velocity.x = dashSpeed * direction.x
 		dashing = false
 	return new_velocity
-
 
 #	var collision = move_and_collide(velocity * delta)
 #	if collision:

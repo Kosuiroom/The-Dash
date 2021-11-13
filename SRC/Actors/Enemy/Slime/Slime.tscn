@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://SRC/Actors/Enemy/Slime/Slime.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Test/Sprite-0001.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.0363, 8.07693 )
 
 [node name="Slime" type="KinematicBody2D"]
-collision_mask = 0
+position = Vector2( 0.111366, -0.222721 )
+collision_layer = 6
+collision_mask = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -3.5 )
@@ -18,3 +26,14 @@ shape = SubResource( 1 )
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
 cast_to = Vector2( 0, 20 )
+
+[node name="dmgCheck" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dmgCheck"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

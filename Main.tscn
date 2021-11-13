@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Background/Brown.png" type="Texture" id=2]
 [ext_resource path="res://SRC/FallZone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Terrain/Terrain (16x16).png" type="Texture" id=4]
+[ext_resource path="res://SRC/Actors/Enemy/Slime/Slime.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.332, 302.877 )
@@ -78,16 +79,22 @@ shape = SubResource( 1 )
 position = Vector2( 0, 24 )
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
+collision_layer = 7
+collision_mask = 7
 format = 1
 tile_data = PoolIntArray( 2293760, 0, 0, 2293761, 536870912, 0, 2293762, 536870912, 0, 2293763, 536870912, 0, 2293764, 536870912, 0, 2293765, 536870912, 0, 2293766, 536870912, 0, 2293767, 536870912, 0, 2293768, 536870912, 0, 2293769, 536870912, 0, 2293770, 536870912, 0, 2293771, 536870912, 0, 2293772, 536870912, 0, 2293773, 536870912, 0, 2293774, 536870912, 0, 2293775, 536870912, 0, 2293776, 536870912, 0, 2293777, 536870912, 0, 2293778, 536870912, 0, 2293779, 536870912, 0, 2293780, 536870912, 0, 2293781, 536870912, 0, 2293782, 536870912, 0, 2293783, 536870912, 0, 2293784, 536870912, 0, 2293785, 536870912, 0, 2293786, 536870912, 0, 2293787, 536870912, 0, 2293788, 536870912, 0, 2293789, 536870912, 0, 2293790, 536870912, 0, 2293791, 536870912, 0, 2293792, 536870912, 0, 2293793, 536870912, 0, 2293801, 536870912, 0, 2293802, 536870912, 0, 2293803, 536870912, 0, 2293804, 536870912, 0, 2293805, 536870912, 0, 2293806, 536870912, 0, 2293807, 536870912, 0, 2293808, 536870912, 0, 2293809, 536870912, 0, 2293810, 536870912, 0, 2293811, 536870912, 0, 2293812, 536870912, 0, 2293813, 536870912, 0, 2293814, 536870912, 0, 2293815, 536870912, 0, 2293816, 536870912, 0, 2293817, 536870912, 0, 2293818, 536870912, 0, 2293819, 536870912, 0, 2293820, 536870912, 0, 2293821, 536870912, 0, 2293822, 536870912, 0 )
 
 [node name="Level_1_Music" type="AudioStreamPlayer" parent="."]
 autoplay = true
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 293.665, 519.253 )
+[node name="Slime" parent="." instance=ExtResource( 5 )]
+position = Vector2( 535.143, 555.36 )
 
 [node name="FallZone" parent="." instance=ExtResource( 3 )]
 position = Vector2( 614.219, 635.558 )
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 293.665, 519.253 )
+
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]
+[connection signal="_dashedInto" from="Player" to="Slime" method="_on_Player__dashedInto"]
