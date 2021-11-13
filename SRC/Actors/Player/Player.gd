@@ -5,13 +5,14 @@ export var dashSpeed: = 1000.0
 var dashing = false
 var lerprate = 0.1
 var notMoving = true
+export var playerSpeed = Vector2(500,500)
 #onready var animation = $AnimatedPlayer
 
 func _physics_process(delta):
 	var _direction: = get_direction()
 	var is_jump_cancelled: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	
-	velocity = calc_move_velocity(velocity,_direction, speed, is_jump_cancelled, dashing)
+	velocity = calc_move_velocity(velocity,_direction, playerSpeed, is_jump_cancelled, dashing)
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 	if _direction != Vector2(0,0):
@@ -20,12 +21,10 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Dash") && dashing == false && notMoving == false:
 			dash()
 	
-	if _direction == Vector2(1,0):
-		print("test")
+	#if _direction == Vector2(1,0):
 		#animation.play("Running")
 		#$AnimatedPlayer.flip_h = false
-	elif _direction == Vector2(-1,0):
-		print("test")
+	#elif _direction == Vector2(-1,0):
 		#animation.play("Running")
 		#$AnimatedPlayer.flip_h = true
 		
@@ -65,3 +64,7 @@ func calc_move_velocity(
 #	if collision:
 #		if collision.collider.name == "MudCrawler":
 #			print("I collided with ", collision.collider.name)
+
+#SIGNALS
+func _on_FallZone_body_entered(body):
+	get_tree().change_scene("res://Main.tscn")
