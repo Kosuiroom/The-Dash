@@ -44,10 +44,15 @@ animation = "Idle"
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0.178154, -11.0649 )
 current = true
-zoom = Vector2( 0.4, 0.4 )
+zoom = Vector2( 0.5, 0.5 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.178154, 1.88536 )
