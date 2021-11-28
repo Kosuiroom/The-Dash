@@ -2,8 +2,13 @@ extends Actor
 
 export var direction = 1
 export var detectCliff = true
-export  var slimeSpeed = 50
+export var slimeSpeed = 50
 var dash = false
+export var SlimeHealth = 2
+
+func _init():
+	health = SlimeHealth
+	print("slimehealth", SlimeHealth)
 
 func _ready():
 	if direction == -1:
@@ -31,6 +36,9 @@ func _on_Timer_timeout():
 func _on_Player__dashedInto(dashing):
 	if dashing:
 		print("damaged slime")
+		SlimeHealth = tookDmg(SlimeHealth,1)
+		
+	if SlimeHealth == 0:
 		slimeSpeed = 0
 		set_collision_layer_bit(1, false)
 		set_collision_mask_bit(0, false)
