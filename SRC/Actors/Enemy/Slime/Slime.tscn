@@ -9,7 +9,6 @@
 extents = Vector2( 12.0363, 8.07693 )
 
 [node name="Slime" type="KinematicBody2D"]
-position = Vector2( 0.111366, -0.222721 )
 collision_layer = 6
 collision_mask = 5
 script = ExtResource( 1 )
