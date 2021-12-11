@@ -11,9 +11,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Running",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -21,17 +21,17 @@ animations = [ {
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Running",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.68982, 6.99889 )
+extents = Vector2( 2.37367, 6.30296 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.15302, 1.67482 )
+extents = Vector2( 2.57804, 4.77999 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 1 )
@@ -40,6 +40,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+dashSpeed = 530.0
+playerSpeed = Vector2( 120, 220 )
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1.05946, -5.56218 )
@@ -59,11 +61,13 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.178154, 1.88536 )
+position = Vector2( -0.945744, 1.83435 )
+scale = Vector2( -1.2263, 1.09076 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -0.883884, 12.7155 )
+position = Vector2( -0.883884, 10.876 )
+scale = Vector2( 1.1312, 0.584785 )
 shape = SubResource( 3 )
 
 [node name="StateMachine" type="Node" parent="."]
