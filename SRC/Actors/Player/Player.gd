@@ -1,3 +1,4 @@
+class_name Player
 extends Actor
 
 export var dashSpeed: = 1000.0
@@ -9,7 +10,10 @@ export var playerSpeed = Vector2(500,500)
 signal _dashedInto(dashing)
 export var PlayerHealth = 3
 var amountOfDashes = 1
+var NO_SLOPE = 64.0
 #onready var animation = $AnimatedPlayer
+
+signal dashingSignal(is_dashing)
 
 func _init():
 	health = PlayerHealth
@@ -30,6 +34,8 @@ func _physics_process(delta):
 			amountOfDashes = 0
 			dash()
 	
+	if _direction == Vector2(0,0) && abs(velocity.x) < NO_SLOPE:
+		velocity.x = 0
 	#if _direction == Vector2(1,0):
 		#animation.play("Running")
 		#$AnimatedPlayer.flip_h = false
@@ -40,7 +46,8 @@ func _physics_process(delta):
 func dash() -> void:
 	print("dash")
 	dashing = true
-	emit_signal("_dashedInto",dashing)
+	emit_signal("dashingSignal", dashing)
+	#emit_signal("_dashedInto",dashing)
 	
 func get_direction() -> Vector2:
 	return Vector2 (
@@ -65,13 +72,7 @@ func calc_move_velocity(
 		new_velocity.y = 0.0
 	if is_dashing:
 		new_velocity.x = dashSpeed * direction.x
-		dashing = false
 	return new_velocity
-
-#	var collision = move_and_collide(velocity * delta)
-#	if collision:
-#		if collision.collider.name == "MudCrawler":
-#			print("I collided with ", collision.collider.name)
 
 #SIGNALS
 func _on_FallZone_body_entered(body):

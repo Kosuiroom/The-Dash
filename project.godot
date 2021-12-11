@@ -13,9 +13,33 @@ _global_script_classes=[ {
 "class": "Actor",
 "language": "GDScript",
 "path": "res://SRC/Actors/Actor.gd"
+}, {
+"base": "Actor",
+"class": "Player",
+"language": "GDScript",
+"path": "res://SRC/Actors/Player/Player.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://SRC/Actors/Player/PlayerState.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://SRC/FSM/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://SRC/FSM/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"Actor": ""
+"Actor": "",
+"Player": "",
+"PlayerState": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
