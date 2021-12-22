@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player_Test_Measuring 16x16.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-01.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-03.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-02.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Test/Spr_Background_Cave.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Background/Spr_Fungi_Forest_Background.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-04.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Music/Home.wav" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Traps/Spikes/Idle.png" type="Texture" id=12]
@@ -20,6 +20,9 @@
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Pink Man/Idle (32x32).png" type="Texture" id=18]
 [ext_resource path="res://SRC/LevelObjects/MovingPlatform/MovingPLatform.tscn" type="PackedScene" id=19]
 [ext_resource path="res://SRC/Actors/Enemy/Mushquito/Mushquito.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/Sprites/Player Health UI Spritesheet.png" type="Texture" id=21]
+[ext_resource path="res://SRC/Particles/Dust And Spores.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Sprites/Background/Fungi Forest - Foreground Tilemap.png" type="Texture" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -1274,52 +1277,87 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 19/z_index = 0
 
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 74, 17 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 17, 74, 17 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 34, 74, 17 )
+
+[sub_resource type="AtlasTexture" id=80]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 51, 74, 17 )
+
+[sub_resource type="SpriteFrames" id=81]
+animations = [ {
+"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Environment" id=76]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 3.16
+glow_strength = 1.16
+glow_bloom = 0.02
+glow_hdr_threshold = 1.16
+glow_hdr_luminance_cap = 48.57
+glow_hdr_scale = 0.38
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Parallax_Background01" type="ParallaxBackground" parent="."]
+[node name="Parrallax_Backgrounds" type="Node" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax_Background01"]
+[node name="Parallax_Background01" type="ParallaxBackground" parent="Parrallax_Backgrounds"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parrallax_Backgrounds/Parallax_Background01"]
 z_as_relative = false
 motion_mirroring = Vector2( 1440, 0 )
 
-[node name="Sprite" type="Sprite" parent="Parallax_Background01/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="Parrallax_Backgrounds/Parallax_Background01/ParallaxLayer"]
 position = Vector2( 0, 16 )
 scale = Vector2( 1.75, 4.04444 )
 z_as_relative = false
 texture = ExtResource( 4 )
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax_Background01"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parrallax_Backgrounds/Parallax_Background01"]
 z_as_relative = false
 motion_scale = Vector2( 0, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 script = ExtResource( 13 )
 
-[node name="Sprite" type="Sprite" parent="Parallax_Background01/ParallaxLayer2"]
+[node name="Sprite" type="Sprite" parent="Parrallax_Backgrounds/Parallax_Background01/ParallaxLayer2"]
 position = Vector2( 0, 56 )
 z_as_relative = false
 texture = ExtResource( 6 )
 centered = false
 flip_v = true
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax_Background01"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parrallax_Backgrounds/Parallax_Background01"]
 z_as_relative = false
 motion_scale = Vector2( 0.3, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 
-[node name="Sprite" type="Sprite" parent="Parallax_Background01/ParallaxLayer3"]
-position = Vector2( 0, 40 )
+[node name="Sprite" type="Sprite" parent="Parrallax_Backgrounds/Parallax_Background01/ParallaxLayer3"]
 z_as_relative = false
 texture = ExtResource( 8 )
 centered = false
 flip_v = true
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax_Background01"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parrallax_Backgrounds/Parallax_Background01"]
 z_as_relative = false
 motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 1400, 0 )
 
-[node name="Sprite" type="Sprite" parent="Parallax_Background01/ParallaxLayer4"]
+[node name="Sprite" type="Sprite" parent="Parrallax_Backgrounds/Parallax_Background01/ParallaxLayer4"]
 position = Vector2( 0, -0.00012207 )
 scale = Vector2( 0.985232, 2.13106 )
 z_as_relative = false
@@ -1327,15 +1365,15 @@ texture = ExtResource( 7 )
 centered = false
 flip_v = true
 
-[node name="Parallax_Forground01" type="ParallaxBackground" parent="."]
+[node name="Parallax_Forground01" type="ParallaxBackground" parent="Parrallax_Backgrounds"]
 layer = 1
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax_Forground01"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parrallax_Backgrounds/Parallax_Forground01"]
 visible = false
 motion_scale = Vector2( 2, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 
-[node name="Sprite" type="Sprite" parent="Parallax_Forground01/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="Parrallax_Backgrounds/Parallax_Forground01/ParallaxLayer"]
 position = Vector2( 512, 320 )
 texture = ExtResource( 10 )
 centered = false
@@ -1353,9 +1391,9 @@ __meta__ = {
 
 [node name="Spr_Cave_Background" type="TextureRect" parent="Spr_Cave_Background"]
 margin_left = 1176.0
-margin_top = -120.0
+margin_top = -112.0
 margin_right = 12568.0
-margin_bottom = 4256.0
+margin_bottom = 4264.0
 texture = ExtResource( 9 )
 stretch_mode = 2
 __meta__ = {
@@ -1399,19 +1437,18 @@ tile_data = PoolIntArray( 1704718, 1610612736, 0, 1704719, 1610612736, 0, 170472
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 75 )
-frame = 3
 playing = true
 flip_h = true
 
 [node name="NPC_Ninja_Frog" type="AnimatedSprite" parent="."]
 position = Vector2( 752, 320 )
 frames = SubResource( 43 )
-frame = 10
+frame = 7
 playing = true
 flip_h = true
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 384, 312 )
+position = Vector2( 3112, 3728 )
 
 [node name="Water" type="TextureRect" parent="."]
 margin_left = 1336.0
@@ -1426,6 +1463,7 @@ __meta__ = {
 }
 
 [node name="TileMap_FungiForest" type="TileMap" parent="."]
+modulate = Color( 1.7, 1.7, 1.7, 1 )
 tile_set = SubResource( 63 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -1437,129 +1475,172 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 11993622, 4, 0, 11993623, 4, 0, 11993624, 4, 0, 11993625, 4, 0, 11993626, 4, 0, 12059158, 4, 0, 12059159, 4, 0, 12059160, 4, 0, 12059161, 4, 0, 12059162, 4, 0, 12124694, 4, 0, 12124695, 4, 0, 12124696, 4, 0, 12124697, 4, 0, 12124698, 4, 0, 12190230, 4, 0, 12190231, 4, 0, 12190232, 4, 0, 12190233, 4, 0, 12190234, 4, 0, 12255766, 4, 0, 12255767, 4, 0, 12255768, 4, 0, 12255769, 4, 0, 12255770, 4, 0, 12321302, 4, 0, 12321303, 4, 0, 12321304, 4, 0, 12321305, 4, 0, 12321306, 4, 0, 12386838, 4, 0, 12386839, 4, 0, 12386840, 4, 0, 12386841, 4, 0, 12386842, 4, 0, 12452374, 4, 0, 12452375, 4, 0, 12452376, 4, 0, 12452377, 4, 0, 12452378, 4, 0, 12517910, 4, 0, 12517911, 4, 0, 12517912, 4, 0, 12517913, 4, 0, 12517914, 4, 0 )
 
-[node name="MovingPlatform" parent="." instance=ExtResource( 19 )]
-position = Vector2( 8128, 2944 )
-move_direction = Vector2( 64, 0 )
-speed = 4.0
-
-[node name="MovingPlatform2" parent="." instance=ExtResource( 19 )]
-position = Vector2( 7984, 2944 )
-move_direction = Vector2( 64, 0 )
-speed = 4.0
-
-[node name="MovingPlatform3" parent="." instance=ExtResource( 19 )]
-position = Vector2( 7776, 3008 )
-move_direction = Vector2( 0, -64 )
-speed = 4.0
-
-[node name="MovingPlatform4" parent="." instance=ExtResource( 19 )]
-position = Vector2( 6000, 3408 )
-move_direction = Vector2( 64, 0 )
-speed = 4.0
-
-[node name="MovingPlatform5" parent="." instance=ExtResource( 19 )]
-position = Vector2( 8944, 3136 )
-move_direction = Vector2( 64, 0 )
-speed = 4.0
-
-[node name="MovingPlatform6" parent="." instance=ExtResource( 19 )]
-position = Vector2( 9088.3, 3008 )
-move_direction = Vector2( 0, 64 )
-speed = 4.0
-
-[node name="MovingPlatform7" parent="." instance=ExtResource( 19 )]
-position = Vector2( 9472, 2688 )
-move_direction = Vector2( 64, -64 )
-speed = 4.0
-
-[node name="MovingPlatform8" parent="." instance=ExtResource( 19 )]
-position = Vector2( 9712, 2688 )
-move_direction = Vector2( -64, -64 )
-speed = 4.0
-
-[node name="MovingPlatform9" parent="." instance=ExtResource( 19 )]
-position = Vector2( 9840, 2688 )
-move_direction = Vector2( 0, -64 )
-speed = 4.0
-
-[node name="MovingPlatform10" parent="." instance=ExtResource( 19 )]
-position = Vector2( 9840.89, 2512 )
-move_direction = Vector2( 0, 64 )
-speed = 4.0
-
 [node name="Level_1_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -9.098
 autoplay = true
 
-[node name="Slime" parent="." instance=ExtResource( 17 )]
+[node name="Moving_Platforms" type="Node" parent="."]
+
+[node name="MovingPlatform" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 8128, 2944 )
+move_direction = Vector2( 64, 0 )
+speed = 4.0
+
+[node name="MovingPlatform2" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 7984, 2944 )
+move_direction = Vector2( 64, 0 )
+speed = 4.0
+
+[node name="MovingPlatform3" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 7776, 3008 )
+move_direction = Vector2( 0, -64 )
+speed = 4.0
+
+[node name="MovingPlatform4" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 6000, 3408 )
+move_direction = Vector2( 64, 0 )
+speed = 4.0
+
+[node name="MovingPlatform5" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 8944, 3136 )
+move_direction = Vector2( 64, 0 )
+speed = 4.0
+
+[node name="MovingPlatform6" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 9088.3, 3008 )
+move_direction = Vector2( 0, 64 )
+speed = 4.0
+
+[node name="MovingPlatform7" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 9472, 2688 )
+move_direction = Vector2( 64, -64 )
+speed = 4.0
+
+[node name="MovingPlatform8" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 9712, 2688 )
+move_direction = Vector2( -64, -64 )
+speed = 4.0
+
+[node name="MovingPlatform9" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 9840, 2688 )
+move_direction = Vector2( 0, -64 )
+speed = 4.0
+
+[node name="MovingPlatform10" parent="Moving_Platforms" instance=ExtResource( 19 )]
+position = Vector2( 9840.89, 2512 )
+move_direction = Vector2( 0, 64 )
+speed = 4.0
+
+[node name="Slime_Enemies" type="Node" parent="."]
+
+[node name="Slime" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 3160, 3728 )
 
-[node name="Slime2" parent="." instance=ExtResource( 17 )]
+[node name="Slime2" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 4264, 3936 )
 
-[node name="Slime3" parent="." instance=ExtResource( 17 )]
+[node name="Slime3" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 4896, 3656 )
 
-[node name="Slime4" parent="." instance=ExtResource( 17 )]
+[node name="Slime4" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 5008, 3656 )
 
-[node name="Slime5" parent="." instance=ExtResource( 17 )]
+[node name="Slime5" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 6288, 3400 )
 
-[node name="Slime6" parent="." instance=ExtResource( 17 )]
-position = Vector2( 6336, 3328 )
+[node name="Slime6" parent="Slime_Enemies" instance=ExtResource( 17 )]
+position = Vector2( 6336, 3336 )
 
-[node name="Slime7" parent="." instance=ExtResource( 17 )]
+[node name="Slime7" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 6448, 3328 )
 
-[node name="Slime8" parent="." instance=ExtResource( 17 )]
+[node name="Slime8" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 7112, 3032 )
 
-[node name="Slime9" parent="." instance=ExtResource( 17 )]
+[node name="Slime9" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 10296.3, 1496 )
 
-[node name="Slime10" parent="." instance=ExtResource( 17 )]
+[node name="Slime10" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 10440, 1448 )
 
-[node name="Slime11" parent="." instance=ExtResource( 17 )]
+[node name="Slime11" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 10640, 1496 )
 
-[node name="Slime12" parent="." instance=ExtResource( 17 )]
+[node name="Slime12" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 10568, 1448 )
 
-[node name="Slime13" parent="." instance=ExtResource( 17 )]
+[node name="Slime13" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 10760, 1496 )
 
-[node name="Slime14" parent="." instance=ExtResource( 17 )]
+[node name="Slime14" parent="Slime_Enemies" instance=ExtResource( 17 )]
 position = Vector2( 10896, 1448 )
 
-[node name="Mushquito" parent="." instance=ExtResource( 20 )]
+[node name="Mushquito_Enemies" type="Node" parent="."]
+
+[node name="Mushquito" parent="Mushquito_Enemies" instance=ExtResource( 20 )]
 position = Vector2( 5289.65, 3408 )
 move_direction = Vector2( 88, 0 )
 speed = 8.0
 
-[node name="Mushquito2" parent="." instance=ExtResource( 20 )]
-position = Vector2( 6376.3, 3384 )
+[node name="Mushquito2" parent="Mushquito_Enemies" instance=ExtResource( 20 )]
+position = Vector2( 6376.6, 3384 )
 move_direction = Vector2( 0, -88 )
 speed = 8.0
 
-[node name="Mushquito3" parent="." instance=ExtResource( 20 )]
+[node name="Mushquito3" parent="Mushquito_Enemies" instance=ExtResource( 20 )]
 position = Vector2( 6680, 3320 )
 move_direction = Vector2( 0, -88 )
 speed = 8.0
 
-[node name="Mushquito4" parent="." instance=ExtResource( 20 )]
+[node name="Mushquito4" parent="Mushquito_Enemies" instance=ExtResource( 20 )]
 position = Vector2( 10368, 1960 )
 move_direction = Vector2( 0, 88 )
 speed = 8.0
 
-[node name="Mushquito5" parent="." instance=ExtResource( 20 )]
+[node name="Mushquito5" parent="Mushquito_Enemies" instance=ExtResource( 20 )]
 position = Vector2( 10296, 2154.44 )
 move_direction = Vector2( 88, 0 )
 speed = 8.0
 
-[node name="Mushquito6" parent="." instance=ExtResource( 20 )]
+[node name="Mushquito6" parent="Mushquito_Enemies" instance=ExtResource( 20 )]
 position = Vector2( 10128, 2408 )
 move_direction = Vector2( 0, -88 )
 speed = 8.0
+
+[node name="UI_Player_Health" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 1112, 296 )
+frames = SubResource( 81 )
+
+[node name="Part_Dust_And_Spores" parent="." instance=ExtResource( 22 )]
+position = Vector2( 3176, 3668.5 )
+
+[node name="Filter01" type="TextureRect" parent="."]
+modulate = Color( 0.6, 0.4, 5, 0.02 )
+self_modulate = Color( 1, 0.4, 2, 0.08 )
+margin_left = 920.0
+margin_top = 1712.0
+margin_right = 9512.0
+margin_bottom = 4320.0
+texture = ExtResource( 23 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Filter02" type="TextureRect" parent="."]
+modulate = Color( 1, 5, 3, 0.04 )
+self_modulate = Color( 1, 2, 1, 0.15 )
+margin_left = 920.0
+margin_top = 1712.0
+margin_right = 9512.0
+margin_bottom = 4320.0
+texture = ExtResource( 23 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 76 )

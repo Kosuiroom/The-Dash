@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="ParticlesMaterial" id=84]
+
+[sub_resource type="CanvasItemMaterial" id=83]
+next_pass = SubResource( 84 )
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=82]
+offsets = PoolRealArray( 0, 0.438889, 0.75 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.145098, 0.607843, 1, 1, 0.741176, 0.427451, 1, 1 )
+
+[node name="Part_Dust_And_Spores" type="CPUParticles2D"]
+modulate = Color( 1.7, 0.9, 1.7, 1 )
+material = SubResource( 83 )
+position = Vector2( 3112, 3680 )
+amount = 800
+lifetime = 4.0
+speed_scale = 0.07
+explosiveness = 0.21
+randomness = 0.52
+lifetime_randomness = 0.64
+emission_shape = 2
+emission_rect_extents = Vector2( 800, 0 )
+direction = Vector2( 500, 0 )
+spread = 180.0
+gravity = Vector2( 1, -1 )
+initial_velocity = 351.85
+initial_velocity_random = 1.0
+angular_velocity = 13.34
+angular_velocity_random = 1.0
+orbit_velocity_random = 0.41
+linear_accel = 40.74
+linear_accel_random = 1.0
+radial_accel = 26.74
+radial_accel_random = 1.0
+tangential_accel = 51.85
+tangential_accel_random = 0.62
+damping = 24.07
+damping_random = 0.53
+angle = 106.7
+angle_random = 1.0
+scale_amount = 0.8
+scale_amount_random = 1.0
+color_ramp = SubResource( 82 )
+hue_variation = 0.02
+hue_variation_random = 0.5
+anim_speed = 45.69
+anim_speed_random = 0.15
+anim_offset = 0.18
+anim_offset_random = 0.27
