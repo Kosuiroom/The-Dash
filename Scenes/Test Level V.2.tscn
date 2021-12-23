@@ -1835,14 +1835,14 @@ tile_data = PoolIntArray( 1704718, 1610612736, 0, 1704719, 1610612736, 0, 170472
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 75 )
-frame = 10
+frame = 3
 playing = true
 flip_h = true
 
 [node name="NPC_Ninja_Frog" type="AnimatedSprite" parent="."]
 position = Vector2( 752, 320 )
 frames = SubResource( 43 )
-frame = 6
+frame = 10
 playing = true
 flip_h = true
 
