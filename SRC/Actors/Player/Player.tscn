@@ -34,14 +34,9 @@ extents = Vector2( 2.37367, 6.30296 )
 extents = Vector2( 2.57804, 4.77999 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0, 1 )
+position = Vector2( 0, -1 )
 collision_mask = 14
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-dashSpeed = 530.0
-playerSpeed = Vector2( 120, 220 )
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1.05946, -5.56218 )
@@ -72,6 +67,7 @@ shape = SubResource( 3 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
@@ -81,3 +77,13 @@ script = ExtResource( 7 )
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -20.0
+margin_top = -31.0
+margin_right = 20.0
+margin_bottom = -17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

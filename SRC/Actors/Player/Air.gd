@@ -1,16 +1,27 @@
-extends Node
+# Air.gd
+extends PlayerState
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# If we get a message asking us to jump, we jump.
+func enter(msg := {}) -> void:
+	if msg.has("do_jump"):
+		player.velocity.y = -player.PlayerJump
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func physics_update(delta: float) -> void:
+	# Horizontal movement.
+	var input_direction_x: float = (
+		Input.get_action_strength("mvRight")
+		- Input.get_action_strength("mvLeft")
+	)
+	player.velocity.x = player.speed * input_direction_x
+	# Vertical movement.
+	player.velocity.y += player.gravity * delta
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	# Landing.
+	if player.is_on_floor():
+		if is_equal_approx(player.velocity.x, 0.0):
+			state_machine.transition_to("Idle")
+		else:
+			state_machine.transition_to("Run")

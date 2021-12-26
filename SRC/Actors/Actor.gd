@@ -2,7 +2,8 @@ extends KinematicBody2D
 class_name Actor
 
 var velocity: = Vector2.ZERO
-var speed: = Vector2(0,0)
+var speed: = 0
+var jump: = 0
 var health = 0
 export var gravity = 500
 

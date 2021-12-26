@@ -106,5 +106,3 @@ move_direction = Vector2( -50, 50 )
 position = Vector2( 230.598, 516.778 )
 
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]
-[connection signal="_dashedInto" from="Player" to="Slime" method="_on_Player__dashedInto"]
-[connection signal="dashingSignal" from="Player" to="visInvisPlattform" method="_on_Player_dashingSignal"]
