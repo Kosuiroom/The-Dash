@@ -4,9 +4,11 @@ export var direction = 1
 export var detectCliff = true
 export var slimeSpeed = 50
 var dash = false
+var slimvol = Vector2.ZERO
 export var SlimeHealth = 2
 
 func _init():
+	velocity = slimvol
 	health = SlimeHealth
 	print("slimehealth", SlimeHealth)
 
