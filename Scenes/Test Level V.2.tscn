@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player_Test_Measuring 16x16.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/Sprites/Background/Fungi Forest - Foreground Tilemap.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest - Small Foreground Tilemap.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest - Big Foreground Tilemap.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/Objects/Spr_Dash_Object.png" type="Texture" id=26]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -1709,6 +1710,46 @@ glow_hdr_threshold = 1.16
 glow_hdr_luminance_cap = 48.57
 glow_hdr_scale = 0.38
 
+[sub_resource type="AtlasTexture" id=84]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 26 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=86]
+atlas = ExtResource( 26 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=87]
+atlas = ExtResource( 26 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=88]
+animations = [ {
+"frames": [ SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="TileSet" id=89]
+0/name = "Spr_Dash_Object.png 0"
+0/texture = ExtResource( 26 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Parrallax_Backgrounds" type="Node" parent="."]
@@ -1835,14 +1876,14 @@ tile_data = PoolIntArray( 1704718, 1610612736, 0, 1704719, 1610612736, 0, 170472
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 75 )
-frame = 3
+frame = 7
 playing = true
 flip_h = true
 
 [node name="NPC_Ninja_Frog" type="AnimatedSprite" parent="."]
 position = Vector2( 752, 320 )
 frames = SubResource( 43 )
-frame = 10
+frame = 3
 playing = true
 flip_h = true
 
@@ -2055,3 +2096,15 @@ __meta__ = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 76 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1568, 344 )
+frames = SubResource( 88 )
+frame = 3
+playing = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 984, 112 )
+tile_set = SubResource( 89 )
+cell_size = Vector2( 16, 16 )
+format = 1
