@@ -17,7 +17,7 @@
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Ninja Frog/Idle (32x32).png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Pink Man/Idle (32x32).png" type="Texture" id=16]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-00.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Sprites/Background/Tilemaps/Tilemap_Fungi_Forest .png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Tilemap_Fungi_Forest .png" type="Texture" id=18]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Virtual Guy/Run (32x32).png" type="Texture" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
