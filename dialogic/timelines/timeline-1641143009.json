@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1641139134.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "Hello again!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1641143009.json",
+		"name": "Heey"
+	}
+}

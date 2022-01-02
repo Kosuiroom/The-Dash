@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player_Test_Measuring 16x16.png" type="Texture" id=2]
@@ -11,9 +11,9 @@
 [ext_resource path="res://Assets/Sprites/Background/Spr_Fungi_Forest_Background.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/Test/Cool Pixel/Parallax/parallax-04.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Music/Home.wav" type="AudioStream" id=11]
+[ext_resource path="res://SRC/Actors/Neutral/Ninja Frog/Ninja Frog.tscn" type="PackedScene" id=12]
 [ext_resource path="res://SRC/Background/CloudLayer.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Sprites/Test/TileSet.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Ninja Frog/Idle (32x32).png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/Background/Spr_Water.png" type="Texture" id=16]
 [ext_resource path="res://SRC/Actors/Enemy/Slime/Slime.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Main Characters/Pink Man/Idle (32x32).png" type="Texture" id=18]
@@ -694,58 +694,6 @@ region = Rect2( 320, 0, 32, 32 )
 [sub_resource type="SpriteFrames" id=75]
 animations = [ {
 "frames": [ SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 15 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 15 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 15 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 15 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 15 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 15 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 15 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 15 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 15 )
-region = Rect2( 256, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 15 )
-region = Rect2( 288, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 15 )
-region = Rect2( 320, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=43]
-animations = [ {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
@@ -2039,6 +1987,9 @@ glow_hdr_scale = 0.38
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Ninja Frog" parent="." instance=ExtResource( 12 )]
+position = Vector2( 728, 320 )
+
 [node name="Parrallax_Backgrounds" type="Node" parent="."]
 
 [node name="Parallax_Background01" type="ParallaxBackground" parent="Parrallax_Backgrounds"]
@@ -2126,7 +2077,6 @@ __meta__ = {
 }
 
 [node name="Player_Test_Measuring16x16" type="TextureRect" parent="."]
-visible = false
 margin_left = 1048.0
 margin_top = 672.0
 margin_right = 4520.0
@@ -2148,26 +2098,19 @@ tile_data = PoolIntArray( -1834012, 4, 0, -1834011, 4, 0, -1834010, 4, 0, -18340
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 75 )
-frame = 10
-playing = true
-flip_h = true
-
-[node name="NPC_Ninja_Frog" type="AnimatedSprite" parent="."]
-position = Vector2( 752, 320 )
-frames = SubResource( 43 )
-frame = 6
+frame = 8
 playing = true
 flip_h = true
 
 [node name="TileMap_Fungi_Forest_Background_Objects" type="TileMap" parent="."]
-modulate = Color( 0.8, 1, 1.3, 1 )
+modulate = Color( 0.619608, 0.772549, 1, 1 )
 tile_set = SubResource( 94 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 131881, 536870914, 0, 131899, 536870914, 0, 197425, 536870913, 0, 197434, 536870914, 0, 328527, 1073741833, 0, 328528, 1073741833, 0, 328531, 1073741833, 0, 328536, 1610612745, 0, 1442564, 536870912, 0, 2163452, 536870912, 0, 3474175, 1, 0, 3670792, 1, 0, 3670798, 2, 0, 3867380, 2, 0, 3998457, 2, 0, 4064002, 1, 0, 4064017, 1, 0, 4195055, 2, 0, 4326129, 1, 0, 4457185, 2, 0, 4457217, 2, 0, 4457221, 2, 0, 4653774, 2, 0, 4784863, 1, 0, 4850375, 2, 0, 4850392, 1, 0, 4915902, 1, 0, 5046990, 1, 0, 5046998, 2, 0, 5112514, 1, 0, 5112552, 1, 0, 5112588, 2, 0, 5178108, 1, 0, 5374645, 1, 0, 5440189, 2, 0, 5505736, 1, 0, 6095479, 1610612744, 0, 6095480, 1610612744, 0, 6095484, 1610612744, 0, 6095485, 1610612744, 0, 8323711, 536870912, 0, 9241228, 0, 0, 9699946, 536870914, 0, 9831016, 4, 0, 9896537, 8, 0, 9896538, 8, 0, 9896539, 536870920, 0, 9896540, 536870920, 0, 9896541, 536870920, 0, 9896542, 536870920, 0, 9896543, 536870920, 0, 9896544, 536870920, 0, 9896545, 8, 0, 9962074, 536870920, 0, 9962075, 8, 0, 9962076, 536870920, 0, 9962077, 8, 0, 9962078, 536870920, 0, 9962079, 536870920, 0, 9962080, 536870920, 0, 10027606, 536870917, 0, 10027611, 8, 0, 10027612, 536870920, 0, 10027613, 536870920, 0, 10027614, 536870920, 0, 10027615, 8, 0, 10027621, 536870914, 0, 10093148, 536870920, 0, 10093149, 536870920, 0, 10093150, 536870920, 0, 10158685, 536870920, 0, 10289749, 536870913, 0, 10355293, 536870917, 0, 10486372, 4, 0, 10551393, 0, 0, 10617420, 536870913, 0, 10617454, 536870913, 0, 10682968, 536870913, 0, 10682982, 536870913, 0, 10682987, 536870914, 0, 10748512, 536870914, 0, 11141217, 6, 0, 11141221, -1073741823, 0, 11272813, 536870914, 0, 11338256, -1610612729, 0, 11403777, 8, 0, 11403778, 8, 0, 11403779, 8, 0, 11403780, 8, 0, 11403790, 7, 0, 11403792, -1610612729, 0, 11469328, -1610612729, 0, 11534435, 6, 0, 11534438, -1073741823, 0, 11534859, 536870915, 0, 11600395, 1, 0, 11600400, 7, 0, 11600401, 7, 0, 11665911, 0, 0, 11665943, 6, 0, 11665946, 6, 0, 11731443, 1, 0, 11731454, 3, 0, 11731481, 6, 0, 11796587, -1073741823, 0, 11796995, 1, 0, 11797015, 6, 0, 11862103, -536870911, 0, 11862114, 6, 0, 11862116, 6, 0, 11862117, 6, 0, 11862552, 6, 0, 11993190, 3, 0, 12058716, 6, 0, 12059194, 1610612742, 0, 12124264, 6, 0, 12124644, 2, 0, 12320853, -536870911, 0, 12320860, 6, 0, 12320872, 6, 0, 12321324, 536870912, 0, 12386868, 1610612742, 0, 12451939, 6, 0, 12583447, 6, 0, 12648985, 6, 0, 12714093, -1073741823, 0, 12714519, 1, 0, 12714520, 6, 0, 12714522, 6, 0, 12779605, -536870911, 0, 12780085, 6, 0, 13041757, 536870915, 0, 13041760, 6, 0, 13107638, 1073741827, 0, 13107762, 6, 0, 13369763, 1610612739, 0, 13632036, 3, 0, 13763110, 1073741832, 0, 13763111, 1610612744, 0, 13763112, 1610612744, 0, 14025005, 536870912, 0, 14614849, 0, 0, 14745786, 7, 0, 14745788, 7, 0, 14811352, 1, 0, 14811368, 8, 0, 14876878, 536870912, 0, 14876904, 8, 0, 14876905, 8, 0, 14942408, 1, 0, 14942431, 0, 0, 14942441, 8, 0, 14942442, 8, 0, 15007978, 8, 0, 15073484, 1, 0, 15073501, 1, 0, 15204638, 2, 0, 15204668, 1073741833, 0, 15204669, 1073741833, 0, 15335706, 2, 0, 15401197, 1, 0, 15466595, 0, 0, 15466635, 536870913, 0, 15532251, 1073741833, 0, 15532252, 1610612745, 0, 15597676, 8, 0, 15597677, 8, 0, 15597680, 7, 0, 15597682, 536870919, 0, 15597683, 536870919, 0, 15597686, 536870920, 0, 15597687, 536870920, 0, 15597688, 536870920, 0, 15597689, 536870920, 0, 15597703, 536870914, 0, 15597756, 536870912, 0, 15663206, 536870917, 0, 15663222, 8, 0, 15663223, 536870920, 0, 15663224, 536870920, 0, 15663225, 8, 0, 15663345, 1, 0, 15663374, 536870912, 0, 15728755, 536870912, 0, 15728760, 536870920, 0, 15728761, 536870920, 0, 15728780, 536870914, 0, 15728889, 7, 0, 15728891, 7, 0, 15728898, 7, 0, 15728914, 2, 0, 15728931, 2, 0, 15794286, 6, 0, 15794297, 536870920, 0, 15794299, 536870913, 0, 15794302, 6, 0, 15859954, 2, 0, 15925338, 536870915, 0, 15925344, 536870916, 0, 15925356, 3, 0, 15925379, 536870913, 0, 15925501, 1, 0, 15925507, 5, 0, 15925515, 6, 0, 15990884, 5, 0, 15990910, 6, 0, 16056430, 536870917, 0, 16056441, 1610612745, 0, 16056442, 1610612745, 0, 16056447, 1610612744, 0, 16122128, 1073741832, 0, 16122129, 1073741832, 0, 16253183, 4, 0, 16253185, 6, 0, 16318723, 6, 0, 16384258, 3, 0, 16449792, 6, 0 )
 
 [node name="TileMap_FungiForest_Big_Foreground_Objects" type="TileMap" parent="."]
-modulate = Color( 0.709804, 0.709804, 0.709804, 1 )
+modulate = Color( 0.71, 0.71, 0.71, 1 )
 tile_set = SubResource( 98 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -2190,7 +2133,7 @@ format = 1
 tile_data = PoolIntArray( 262880, 0, 0, 590562, 0, 0, 787175, 0, 0, 1114857, 0, 0, 1442511, 0, 0, 1442517, 0, 0, 1442522, 0, 0, 1442528, 0, 0, 1442535, 0, 0, 1639108, 0, 0, 2163396, 0, 0, 2622153, 0, 0, 3211974, 0, 0, 3736270, 0, 0, 4129470, 0, 0, 4260553, 0, 0, 4588210, 0, 0, 4850333, 0, 0, 4850349, 0, 0, 5046933, 0, 0, 5046950, 0, 0, 5702205, 0, 0, 5964349, 0, 0, 6226493, 0, 0, 6488637, 0, 0, 6750781, 0, 0, 7078461, 0, 0, 7471683, 0, 0, 7799374, 0, 0, 8454730, 0, 0, 8913470, 0, 0, 10289667, 0, 0, 10551824, 0, 0, 10682869, 0, 0, 10813976, 0, 0, 10945013, 0, 0, 11207157, 0, 0, 11403762, 0, 0, 11600374, 0, 0, 12190069, 0, 0, 12583298, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 624, 320 )
+position = Vector2( 672, 320 )
 
 [node name="TileMap_FungiForest_Small_Foreground_Objects" type="TileMap" parent="."]
 tile_set = SubResource( 82 )
@@ -2226,7 +2169,6 @@ tile_data = PoolIntArray( 11993622, 4, 0, 11993623, 4, 0, 11993624, 4, 0, 119936
 [node name="Level_1_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -9.098
-autoplay = true
 
 [node name="Moving_Platforms" type="Node" parent="."]
 
@@ -2367,6 +2309,12 @@ frames = SubResource( 81 )
 modulate = Color( 1.5, 1.2, 2, 1 )
 position = Vector2( 2520, 3784 )
 rotation = -0.213633
+speed_scale = 0.02
+
+[node name="Part_Dust_And_Spores18" parent="Part_Dust_And_Spores" instance=ExtResource( 22 )]
+modulate = Color( 1.5, 1.2, 2, 1 )
+position = Vector2( 1592, 3056 )
+rotation = -1.52627
 speed_scale = 0.02
 
 [node name="Part_Dust_And_Spores2" parent="Part_Dust_And_Spores" instance=ExtResource( 22 )]

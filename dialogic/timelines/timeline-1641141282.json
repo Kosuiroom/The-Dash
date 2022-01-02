@@ -1,0 +1,63 @@
+{
+	"events": [
+		{
+			"character": "character-1641139134.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "Hello, little guy!"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Will you really enter this spooky cave?"
+		},
+		{
+			"choice": "Sure will!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1641139134.json",
+			"event_id": "dialogic_001",
+			"portrait": "Shock",
+			"text": "Well okay then. Good luck and don't breath in the spores."
+		},
+		{
+			"character": "character-1641139134.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "Seriously not good for your lungs."
+		},
+		{
+			"choice": "Only if you join me.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1641139134.json",
+			"event_id": "dialogic_001",
+			"portrait": "Shock",
+			"text": "Well... I got some things going on. Karate and ninja stuff, you know. So good luck on the adventure, you!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1641141282.json",
+		"name": "Test"
+	}
+}

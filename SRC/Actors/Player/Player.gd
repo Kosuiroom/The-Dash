@@ -10,6 +10,8 @@ export var dashSpeed: = 1000.0
 onready var fsm := $StateMachine
 onready var label := $Label
 
+onready var interactionManager: InteractionManager = $"Interaction"
+
 func _init():
 	speed = PlayerSpeed
 	jump = PlayerJump
@@ -18,8 +20,15 @@ func _init():
 
 func _process(_delta: float) -> void:
 	label.text = fsm.state.name
+	
+	
+func _unhandled_input(_event) -> void:
+		if Input.is_action_just_pressed("ui_accept"):
+			interactionManager.initiate_interaction()
 
 
+func _on_Interaction_area_entered(area):
+	pass # Replace with function body.
 
 #class_name Player
 #extends Actor
@@ -100,3 +109,6 @@ func _process(_delta: float) -> void:
 ##SIGNALS
 #func _on_FallZone_body_entered(body):
 #	get_tree().change_scene("res://Main.tscn")
+
+
+
