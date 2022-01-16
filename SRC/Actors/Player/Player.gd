@@ -11,6 +11,7 @@ var dashing := false
 
 onready var fsm := $StateMachine
 onready var label := $Label
+onready var dashTimer := $dash_timer
 
 #onready var interactionManager: InteractionManager = $"Interaction"
 
@@ -19,6 +20,13 @@ func _init():
 	jump = PlayerJump
 	health = PlayerHealth
 	
+func _ready():
+	print("setup")
+	dashTimer.connect("timeout", self,"dash_timer_timeout")
+
+func dash_timer_timeout():
+	print("timedout")
+	dashing = false;
 
 func _process(_delta: float) -> void:
 	label.text = fsm.state.name

@@ -1,8 +1,11 @@
 extends PlayerState
 
+var dash_length = 0.2
+
 func enter(msg := {}) -> void:
 	if msg.has("do_dash"):
 		player.dashing = true
+		player.dashTimer.start(dash_length)
 		print("dashing: ", player.dashing)
 
 func physics_update(delta: float) -> void:
@@ -11,10 +14,9 @@ func physics_update(delta: float) -> void:
 		Input.get_action_strength("mvRight")
 		- Input.get_action_strength("mvLeft")
 	)
-	
-	if player.dashing == true:
-		player.velocity.x = player.dashSpeed * input_direction_x
-		player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+
+	player.velocity.x = player.dashSpeed * input_direction_x
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 		
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air", {do_jump = true})
