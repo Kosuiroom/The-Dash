@@ -1,12 +1,10 @@
 # Air.gd
 extends PlayerState
 
-
 # If we get a message asking us to jump, we jump.
 func enter(msg := {}) -> void:
 	if msg.has("do_jump"):
 		player.velocity.y = -player.PlayerJump
-
 
 func physics_update(delta: float) -> void:
 	# Horizontal movement.
@@ -25,3 +23,5 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Idle")
 		else:
 			state_machine.transition_to("Run")
+	elif Input.is_action_just_pressed("Dash") && player.dashing == false:
+		state_machine.transition_to("Dash")

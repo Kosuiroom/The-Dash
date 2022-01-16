@@ -8,13 +8,13 @@
 [ext_resource path="res://SRC/Actors/Player/Idle.gd" type="Script" id=6]
 [ext_resource path="res://SRC/Actors/Player/Run.gd" type="Script" id=7]
 [ext_resource path="res://SRC/Actors/Player/Air.gd" type="Script" id=8]
-[ext_resource path="res://SRC/InteractionManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://SRC/Actors/Player/Dash.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Jumping",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -22,9 +22,9 @@ animations = [ {
 "name": "Running",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Jumping",
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -67,8 +67,6 @@ position = Vector2( -0.883884, 10.876 )
 scale = Vector2( 1.1312, 0.584785 )
 shape = SubResource( 3 )
 
-[node name="Interaction" parent="." instance=ExtResource( 9 )]
-
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )
 initial_state = NodePath("Idle")
@@ -81,6 +79,9 @@ script = ExtResource( 7 )
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -20.0
