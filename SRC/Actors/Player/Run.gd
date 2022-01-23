@@ -16,7 +16,7 @@ func physics_update(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Air", {do_jump = true})
-		$SoundJump.play()
+		player.JumpSound.play()
 	elif Input.is_action_just_pressed("Dash"):
 		state_machine.transition_to("Dash", {do_dash = true})
 	elif is_equal_approx(input_direction_x, 0.0):

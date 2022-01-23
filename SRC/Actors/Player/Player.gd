@@ -14,6 +14,7 @@ var DashAmount = 1
 onready var fsm := $StateMachine
 onready var label := $Label
 onready var dashTimer := $dash_timer
+onready var JumpSound := $SoundJump
 
 #onready var interactionManager: InteractionManager = $"Interaction"
 

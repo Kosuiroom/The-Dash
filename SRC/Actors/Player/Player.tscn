@@ -68,6 +68,13 @@ position = Vector2( -0.883884, 10.876 )
 scale = Vector2( 1.1312, 0.584785 )
 shape = SubResource( 3 )
 
+[node name="SoundJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="dash_timer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )
 initial_state = NodePath("Idle")
@@ -92,10 +99,3 @@ margin_bottom = -17.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="dash_timer" type="Timer" parent="."]
-process_mode = 0
-one_shot = true
-
-[node name="SoundJump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
