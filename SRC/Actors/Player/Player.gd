@@ -2,14 +2,15 @@
 class_name Player
 extends Actor
 
-export var PlayerSpeed := 500.0
-export var PlayerJump := 500.0
+export var PlayerSpeed := 200.0
+export var PlayerJump := 200.0
 export var PlayerHealth := 5
-export var dashSpeed: = 1000.0
+export var dashSpeed: = 500.0
 
-var dashing := false
+var dashing = true
 var NO_SLOPE = 64.0
 var DashAmount = 1
+var canDash = false
 
 onready var fsm := $StateMachine
 onready var label := $Label
@@ -22,11 +23,6 @@ func _init():
 	speed = PlayerSpeed
 	jump = PlayerJump
 	health = PlayerHealth
-	
-func _ready():
-	dashTimer.connect("timeout", self,"dash_timer_timeout")
-
-
 
 func _process(_delta: float) -> void:
 	label.text = fsm.state.name
