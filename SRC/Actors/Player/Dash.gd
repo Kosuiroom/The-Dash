@@ -1,6 +1,6 @@
 extends PlayerState
 
-var input_direction_x: float
+var input_direction: Vector2
 
 func enter(msg := {}) -> void:
 	if msg.has("do_dash"):
@@ -9,28 +9,32 @@ func enter(msg := {}) -> void:
 		player.dashTimer.start()
 		print("dashing: ", player.dashing)
 
-func physics_update(delta: float) -> void:
-	
-	player.velocity.y = 0
+func physics_update(_delta) -> void:
 	
 	if player.dashing:
-		input_direction_x = (
-			Input.get_action_strength("mvRight")
-			- Input.get_action_strength("mvLeft")
-		)
+		input_direction = Vector2(
+			int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
+			int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
+			)
 
-		player.velocity.x = player.dashSpeed * input_direction_x
-		player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	player.velocity = player.dashSpeed * input_direction
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
 
 func _on_dash_timer_timeout():
 	print("stoped dashing")
 	player.dashing = false
 	player.canDash = true
-	if Input.is_action_just_pressed("jump"):
-		state_machine.transition_to("Air", {})
+	
+	if not player.is_on_floor():
+		state_machine.transition_to("Air")
+	elif player.is_on_floor() && Vector2.ZERO:
+		state_machine.transition_to("Idle")
+		
+	if player.is_on_floor() && Input.is_action_just_pressed("jump"):
+		state_machine.transition_to("Air", {do_jump = true})
 		player.JumpSound.play()
-	elif is_equal_approx(input_direction_x, 0.0):
+	elif Vector2.ZERO:
 		state_machine.transition_to("Idle")
 	elif Input.is_action_pressed("mvLeft") or Input.is_action_pressed("mvRight"):
 		state_machine.transition_to("Run")	
