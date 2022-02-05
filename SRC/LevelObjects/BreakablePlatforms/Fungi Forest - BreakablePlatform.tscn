@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Sprites/Objects/Sprite-0001-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://SRC/LevelObjects/BreakablePlatforms/BreakablePlatform.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 6.46754 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Destroyed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="Breakable Platform" type="Node2D"]
+
+[node name="BreakingPlatform" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="BreakingPlatform"]
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakingPlatform"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BreakingPlatform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakingPlatform/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BreakingPlatform"]
+anims/Destroyed = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="BreakingPlatform"]
+
+[connection signal="timeout" from="BreakingPlatform/Timer" to="BreakingPlatform" method="_on_Timer_timeout"]
