@@ -21,6 +21,9 @@ func physics_update(_delta) -> void:
 
 	player.velocity = player.dashSpeed * input_direction
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	
+	if player.is_on_floor():
+		state_machine.transition_to("Idle")
 
 
 func _on_dash_timer_timeout():
