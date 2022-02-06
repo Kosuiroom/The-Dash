@@ -13,8 +13,8 @@ func physics_update(_delta) -> void:
 	
 	if player.dashing:
 		input_direction = Vector2(
-			int(Input.get_action_strength('mvRight')) - int(Input.get_action_strength("mvLeft")),
-			int(Input.get_action_strength('mvDown')) - int(Input.get_action_strength('mvUp'))
+			Input.get_action_strength('mvRight') - Input.get_action_strength("mvLeft"),
+			Input.get_action_strength('mvDown') - Input.get_action_strength('mvUp')
 			)
 
 	print("input: ", input_direction)
