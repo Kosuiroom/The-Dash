@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Terrain/Terrain (16x16).png" type="Texture" id=4]
 [ext_resource path="res://SRC/Actors/Enemy/Slime/Slime.tscn" type="PackedScene" id=5]
 [ext_resource path="res://SRC/LevelObjects/MovingPlatform/MovingPLatform.tscn" type="PackedScene" id=6]
-[ext_resource path="res://SRC/LevelObjects/BreakablePlatforms/visInvisPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SRC/LevelObjects/BreakablePlatforms/Fungi Forest - BreakablePlatform.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.332, 302.877 )
@@ -95,14 +95,14 @@ position = Vector2( 535.143, 555.36 )
 [node name="FallZone" parent="." instance=ExtResource( 3 )]
 position = Vector2( 614.219, 635.558 )
 
-[node name="visInvisPlattform" parent="." instance=ExtResource( 7 )]
-position = Vector2( 294.865, 548.185 )
-
 [node name="movingPlatform" parent="." instance=ExtResource( 6 )]
 position = Vector2( 260.433, 396.152 )
 move_direction = Vector2( -50, 50 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 230.598, 516.778 )
+
+[node name="Breakable Platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 601, 561 )
 
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]

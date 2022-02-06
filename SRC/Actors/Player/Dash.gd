@@ -13,12 +13,17 @@ func physics_update(_delta) -> void:
 	
 	if player.dashing:
 		input_direction = Vector2(
-			int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
-			int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
+			Input.get_action_strength('mvRight') - Input.get_action_strength("mvLeft"),
+			Input.get_action_strength('mvDown') - Input.get_action_strength('mvUp')
 			)
+
+	print("input: ", input_direction)
 
 	player.velocity = player.dashSpeed * input_direction
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	
+	if player.is_on_floor():
+		state_machine.transition_to("Idle")
 
 
 func _on_dash_timer_timeout():

@@ -32,6 +32,7 @@
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker03.tres" type="Texture" id=30]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker02.tres" type="Texture" id=31]
 
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
