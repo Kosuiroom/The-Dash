@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Traps/Falling Platforms/Off.png" type="Texture" id=1]
-[ext_resource path="res://SRC/LevelObjects/BreakablePlatforms/visInvisPlatform.gd" type="Script" id=2]
+[ext_resource path="res://SRC/LevelObjects/VisInvisPlatform/visInvisPlatform.gd" type="Script" id=2]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.6285, 3.60441 )
