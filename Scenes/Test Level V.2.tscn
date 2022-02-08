@@ -32,7 +32,6 @@
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker03.tres" type="Texture" id=30]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker02.tres" type="Texture" id=31]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
@@ -2100,6 +2099,7 @@ tile_data = PoolIntArray( -1834012, 4, 0, -1834011, 4, 0, -1834010, 4, 0, -18340
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 38 )
+frame = 6
 playing = true
 flip_h = true
 

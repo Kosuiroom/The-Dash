@@ -1,4 +1,3 @@
-# Character that moves and jumps.
 class_name Player
 extends Actor
 
@@ -7,10 +6,9 @@ export var PlayerJump := 200.0
 export var PlayerHealth := 5
 export var dashSpeed: = 500.0
 
-var dashing = true
+var dashing = false
 var NO_SLOPE = 64.0
 var DashAmount = 1
-var canDash = false
 
 onready var fsm := $StateMachine
 onready var label := $Label

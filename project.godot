@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "InteractionManager",
 "language": "GDScript",
-"path": "res://InteractionManager.gd"
+"path": "res://SRC/Actors/InteractionManager/InteractionManagerArea.gd"
 }, {
 "base": "Actor",
 "class": "Player",
