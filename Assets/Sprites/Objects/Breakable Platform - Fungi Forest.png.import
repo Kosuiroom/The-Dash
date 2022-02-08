@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sprite-0001-Sheet.png-980dfd13df048c3179db873a3a93150f.stex"
+path="res://.import/Breakable Platform - Fungi Forest.png-70201842b1b5022a8badf5b66e02cf1b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Objects/Sprite-0001-Sheet.png"
-dest_files=[ "res://.import/Sprite-0001-Sheet.png-980dfd13df048c3179db873a3a93150f.stex" ]
+source_file="res://Assets/Sprites/Objects/Breakable Platform - Fungi Forest.png"
+dest_files=[ "res://.import/Breakable Platform - Fungi Forest.png-70201842b1b5022a8badf5b66e02cf1b.stex" ]
 
 [params]
 
