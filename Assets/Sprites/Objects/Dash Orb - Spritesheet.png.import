@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Breakable Platform - Fungi Forest.png-70201842b1b5022a8badf5b66e02cf1b.stex"
+path="res://.import/Dash Orb - Spritesheet.png-076d0adba2db264cdd9755caa5cef978.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Objects/Breakable Platform - Fungi Forest.png"
-dest_files=[ "res://.import/Breakable Platform - Fungi Forest.png-70201842b1b5022a8badf5b66e02cf1b.stex" ]
+source_file="res://Assets/Sprites/Objects/Dash Orb - Spritesheet.png"
+dest_files=[ "res://.import/Dash Orb - Spritesheet.png-076d0adba2db264cdd9755caa5cef978.stex" ]
 
 [params]
 
