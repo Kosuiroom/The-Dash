@@ -47,3 +47,8 @@ func _on_Player__dashedInto(dashing):
 		$dmgCheck.set_collision_layer_bit(1, false)
 		$dmgCheck.set_collision_mask_bit(0, false)
 		$Timer.start()
+
+
+func _on_dmgCheck_body_entered(body):
+	print("ouch!")
+	body.takeDmg(position.x)
