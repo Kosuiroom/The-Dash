@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player_Test_Measuring 16x16.png" type="Texture" id=2]
@@ -31,6 +31,10 @@
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker01.tres" type="Texture" id=29]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker03.tres" type="Texture" id=30]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Cave Spiker02.tres" type="Texture" id=31]
+<<<<<<< HEAD
+=======
+[ext_resource path="res://SRC/Objects/Dash Orb.tscn" type="PackedScene" id=32]
+>>>>>>> e31326164c8003015019cdc46f9e7f450d297bfe
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -2099,7 +2103,11 @@ tile_data = PoolIntArray( -1834012, 4, 0, -1834011, 4, 0, -1834010, 4, 0, -18340
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 38 )
+<<<<<<< HEAD
 frame = 10
+=======
+frame = 9
+>>>>>>> e31326164c8003015019cdc46f9e7f450d297bfe
 playing = true
 flip_h = true
 
@@ -2134,7 +2142,7 @@ format = 1
 tile_data = PoolIntArray( 262880, 0, 0, 590562, 0, 0, 787175, 0, 0, 1114857, 0, 0, 1442511, 0, 0, 1442517, 0, 0, 1442522, 0, 0, 1442528, 0, 0, 1442535, 0, 0, 1639108, 0, 0, 2163396, 0, 0, 2622153, 0, 0, 3211974, 0, 0, 3736270, 0, 0, 4129470, 0, 0, 4260553, 0, 0, 4588210, 0, 0, 4850333, 0, 0, 4850349, 0, 0, 5046933, 0, 0, 5046950, 0, 0, 5702205, 0, 0, 5964349, 0, 0, 6226493, 0, 0, 6488637, 0, 0, 6750781, 0, 0, 7078461, 0, 0, 7471683, 0, 0, 7799374, 0, 0, 8454730, 0, 0, 8913470, 0, 0, 10289667, 0, 0, 10551824, 0, 0, 10682869, 0, 0, 10813976, 0, 0, 10945013, 0, 0, 11207157, 0, 0, 11403762, 0, 0, 11600374, 0, 0, 12190069, 0, 0, 12583298, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 672.178, 320 )
+position = Vector2( 832, 256 )
 
 [node name="TileMap_FungiForest_Small_Foreground_Objects" type="TileMap" parent="."]
 tile_set = SubResource( 50 )
@@ -2445,3 +2453,7 @@ environment = SubResource( 76 )
 
 [node name="Breakable Platform" parent="." instance=ExtResource( 15 )]
 position = Vector2( 776, 320 )
+
+[node name="Dash Orb" parent="." instance=ExtResource( 32 )]
+modulate = Color( 0.6, 1.2, 1.4, 1 )
+position = Vector2( 7000, 3096 )

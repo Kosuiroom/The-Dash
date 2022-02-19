@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sprite-0001-Sheet.png-980dfd13df048c3179db873a3a93150f.stex"
+path="res://.import/Dash Orb - Spritesheet.png-076d0adba2db264cdd9755caa5cef978.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Objects/Sprite-0001-Sheet.png"
-dest_files=[ "res://.import/Sprite-0001-Sheet.png-980dfd13df048c3179db873a3a93150f.stex" ]
+source_file="res://Assets/Sprites/Objects/Dash Orb - Spritesheet.png"
+dest_files=[ "res://.import/Dash Orb - Spritesheet.png-076d0adba2db264cdd9755caa5cef978.stex" ]
 
 [params]
 

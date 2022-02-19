@@ -26,9 +26,9 @@ func _on_Timer_timeout():
 #	collision_layer = temp
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished():
 	pass
-#	print("animation is finished")
+	#print("animation is finished")
 #	if anim_name == "animation_finished":
 #		queue_free()
 #		print("animation finished")

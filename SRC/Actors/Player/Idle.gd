@@ -16,3 +16,5 @@ func physics_update(delta: float) -> void:
 		player.JumpSound.play()
 	elif Input.is_action_pressed("mvLeft") or Input.is_action_pressed("mvRight"):
 		state_machine.transition_to("Run")
+	elif Input.is_action_just_pressed("Dash") and player.DashAmount != 0:
+		state_machine.transition_to("Dash", {do_dash = true})
