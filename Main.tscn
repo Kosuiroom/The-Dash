@@ -102,6 +102,10 @@ move_direction = Vector2( -50, 50 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 230.598, 516.778 )
+gravity = 500
+PlayerJump = 200.0
+MaxHealth = 3
+dashSpeed = 500.0
 
 [node name="DashOrb" parent="." instance=ExtResource( 8 )]
 position = Vector2( 394, 573 )
