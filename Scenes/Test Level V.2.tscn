@@ -1,4 +1,5 @@
 [gd_scene load_steps=109 format=2]
+
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player_Test_Measuring 16x16.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Background/Tilemaps/Fungi Forest/Big Mushroom Creatures.tres" type="Texture" id=3]
@@ -2099,7 +2100,7 @@ tile_data = PoolIntArray( -1834012, 4, 0, -1834011, 4, 0, -1834010, 4, 0, -18340
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 14360, 272 )
 frames = SubResource( 38 )
-frame = 10
+frame = 5
 playing = true
 flip_h = true
 
