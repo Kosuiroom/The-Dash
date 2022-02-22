@@ -90,7 +90,6 @@ tile_data = PoolIntArray( 2293760, 0, 0, 2293761, 536870912, 0, 2293762, 5368709
 autoplay = true
 
 [node name="Slime" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 535.143, 555.36 )
 
 [node name="FallZone" parent="." instance=ExtResource( 3 )]
@@ -102,10 +101,6 @@ move_direction = Vector2( -50, 50 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 230.598, 516.778 )
-gravity = 500
-PlayerJump = 200.0
-MaxHealth = 3
-dashSpeed = 500.0
 
 [node name="DashOrb" parent="." instance=ExtResource( 8 )]
 position = Vector2( 394, 573 )

@@ -35,20 +35,15 @@ func _on_Timer_timeout():
 	queue_free()
 
 
-func _on_Player__dashedInto(dashing):
-	if dashing:
-		print("damaged slime")
-		SlimeHealth = tookDmg(SlimeHealth,1)
-		
-	if SlimeHealth == 0:
-		slimeSpeed = 0
-		set_collision_layer_bit(1, false)
-		set_collision_mask_bit(0, false)
-		$dmgCheck.set_collision_layer_bit(1, false)
-		$dmgCheck.set_collision_mask_bit(0, false)
-		$Timer.start()
-
-
-func _on_dmgCheck_body_entered(body):
-	print("ouch!")
-	body.takeDmg(position.x)
+#func _on_Player__dashedInto(dashing):
+#	if dashing:
+#		print("damaged slime")
+#		SlimeHealth = tookDmg(SlimeHealth,1)
+#
+#	if SlimeHealth == 0:
+#		slimeSpeed = 0
+#		set_collision_layer_bit(1, false)
+#		set_collision_mask_bit(0, false)
+#		$dmgCheck.set_collision_layer_bit(1, false)
+#		$dmgCheck.set_collision_mask_bit(0, false)
+#		$Timer.start()

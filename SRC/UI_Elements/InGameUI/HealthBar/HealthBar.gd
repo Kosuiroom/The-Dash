@@ -5,7 +5,6 @@ func _on_Player_health_update(playerHealth):
 #	healthbar.value = playerHealth
 	if playerHealth == 3:
 		self.set_frame(0)
-		self.get_animation()
 	elif playerHealth == 2:
 		self.set_frame(1)
 	elif playerHealth == 1:

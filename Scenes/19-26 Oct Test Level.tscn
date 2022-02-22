@@ -1176,50 +1176,6 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 16 )
 } ]
 0/z_index = 0
 
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=53]
-atlas = ExtResource( 8 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=54]
-atlas = ExtResource( 8 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=55]
-atlas = ExtResource( 8 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=56]
-atlas = ExtResource( 8 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=57]
-atlas = ExtResource( 8 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=58]
-atlas = ExtResource( 8 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=59]
-atlas = ExtResource( 8 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=60]
-atlas = ExtResource( 8 )
-region = Rect2( 256, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=61]
-atlas = ExtResource( 8 )
-region = Rect2( 288, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=62]
-atlas = ExtResource( 8 )
-region = Rect2( 320, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 32, 32 )
@@ -1268,17 +1224,61 @@ region = Rect2( 320, 0, 32, 32 )
 atlas = ExtResource( 19 )
 region = Rect2( 352, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 8 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 8 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 8 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 8 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 8 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 8 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 8 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 8 )
+region = Rect2( 320, 0, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=75]
 animations = [ {
-"frames": [ SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
-"loop": true,
-"name": "default",
-"speed": 11.0
-}, {
 "frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ) ],
 "loop": true,
 "name": "run",
 "speed": 12.0
+}, {
+"frames": [ SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
+"loop": true,
+"name": "default",
+"speed": 11.0
 } ]
 
 [sub_resource type="AtlasTexture" id=76]
@@ -1535,21 +1535,20 @@ position = Vector2( 6648, -880 )
 [node name="NPC_Virtual_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 7208, -1344 )
 frames = SubResource( 75 )
-frame = 7
 playing = true
 flip_h = true
 
 [node name="NPC_Pink_Guy" type="AnimatedSprite" parent="."]
 position = Vector2( 7336, -1344 )
 frames = SubResource( 87 )
-frame = 9
+frame = 8
 playing = true
 flip_h = true
 
 [node name="NPC_Ninja_Frog" type="AnimatedSprite" parent="."]
 position = Vector2( 7280, -1344 )
 frames = SubResource( 99 )
-frame = 7
+frame = 6
 playing = true
 flip_h = true
 

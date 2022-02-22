@@ -18,7 +18,6 @@ onready var JumpSound := $SoundJump
 onready var healthbar := $HealthBar
 onready var playerHealth = MaxHealth setget _set_health
 signal health_update(playerHealth)
-#onready var interactionManager: InteractionManager = $"Interaction"
 
 func _init():
 	speed = PlayerSpeed
@@ -51,13 +50,8 @@ func _set_health(value):
 		if playerHealth <= 0:
 			kill()
 
-
-func takeDmg(var enemyPosx):
+func takeDmg():
 	damage(1)
-	
-#func _unhandled_input(_event) -> void:
-#		if Input.is_action_just_pressed("ui_accept"):
-#			interactionManager.initiate_interaction()
 
 ##SIGNALS
 func _on_FallZone_body_entered(body):
