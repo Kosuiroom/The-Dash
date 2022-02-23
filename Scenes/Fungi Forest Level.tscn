@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Sprites/Background/Spr_Fungi_Forest_Background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Background/Fungi Forest - Foreground Tilemap.png" type="Texture" id=2]
+[ext_resource path="res://SRC/Particles/Dust And Spores.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SRC/Tilemaps/Fungi Forest - Tilemap.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 3.16
+glow_strength = 1.16
+glow_bloom = 0.02
+glow_hdr_threshold = 1.16
+glow_hdr_luminance_cap = 48.57
+glow_hdr_scale = 0.38
+
+[node name="Level" type="Node"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+margin_top = -88.0
+margin_right = 3112.0
+margin_bottom = 1712.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Door" type="Node" parent="."]
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="FungiForestTilemap" parent="Objects" instance=ExtResource( 5 )]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Tiles" type="Node" parent="."]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource( 4 )]
+position = Vector2( 256, 160 )
+
+[node name="Part_Dust_And_Spores" type="Node" parent="."]
+
+[node name="Part_Dust_And_Spores" parent="Part_Dust_And_Spores" instance=ExtResource( 3 )]
+modulate = Color( 1.5, 1.2, 2, 1 )
+position = Vector2( 728, 1384 )
+rotation = -0.213633
+speed_scale = 0.02
+
+[node name="Filter01" type="TextureRect" parent="."]
+modulate = Color( 0.6, 0.4, 5, 0.02 )
+self_modulate = Color( 1, 0.4, 2, 0.08 )
+margin_left = -872.0
+margin_top = -688.0
+margin_right = 7720.0
+margin_bottom = 1920.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Filter02" type="TextureRect" parent="."]
+modulate = Color( 1, 5, 3, 0.04 )
+self_modulate = Color( 1, 2, 1, 0.15 )
+margin_left = -872.0
+margin_top = -688.0
+margin_right = 7720.0
+margin_bottom = 1920.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldGlow" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

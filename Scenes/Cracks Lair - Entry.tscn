@@ -729,10 +729,6 @@ tile_data = PoolIntArray( -1441716, 29, 0, -1441715, 29, 1, -1441714, 29, 1, -14
 
 [node name="Player" parent="Player" instance=ExtResource( 4 )]
 position = Vector2( 2792, 376 )
-gravity = 500
-PlayerJump = 200.0
-MaxHealth = 3
-dashSpeed = 500.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 28 )
