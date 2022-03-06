@@ -6,15 +6,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 13, 10.0385 )
+extents = Vector2( 12, 11 )
 
 [node name="Slime" type="KinematicBody2D"]
+position = Vector2( -2, 1 )
 collision_layer = 6
 collision_mask = 5
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -3.5 )
@@ -29,11 +27,12 @@ cast_to = Vector2( 0, 20 )
 [node name="dmgCheck" type="Area2D" parent="."]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dmgCheck"]
-position = Vector2( -4.76837e-07, -1.96153 )
+[node name="dmg" type="CollisionShape2D" parent="dmgCheck"]
+position = Vector2( 0, -1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="dmgCheck" to="." method="_on_dmgCheck_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

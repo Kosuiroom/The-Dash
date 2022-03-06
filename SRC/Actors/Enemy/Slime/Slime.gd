@@ -10,7 +10,7 @@ export var SlimeHealth = 2
 func _init():
 	velocity = slimvol
 	health = SlimeHealth
-	print("slimehealth", SlimeHealth)
+	print("slimehealth ", SlimeHealth)
 
 func _ready():
 	if direction == -1:
@@ -47,3 +47,6 @@ func _on_Timer_timeout():
 #		$dmgCheck.set_collision_layer_bit(1, false)
 #		$dmgCheck.set_collision_mask_bit(0, false)
 #		$Timer.start()
+
+func _on_dmgCheck_body_entered(body):
+	body.takeDmg()
