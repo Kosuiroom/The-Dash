@@ -78,9 +78,3 @@ reset_on_save = false
 anims/Destroyed = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/RESET = SubResource( 5 )
-
-[node name="Timer" type="Timer" parent="BreakingPlatform"]
-one_shot = true
-
-[connection signal="animation_finished" from="BreakingPlatform/AnimationPlayer" to="BreakingPlatform" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="BreakingPlatform/Timer" to="BreakingPlatform" method="_on_Timer_timeout"]

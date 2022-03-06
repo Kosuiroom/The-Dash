@@ -56,6 +56,11 @@ func IsKilled():
 	print("player died")
 	pass
 
+func RefreshDash():
+	print("Refreshing dash to 1")
+	DashAmount = 1
+	
+
 ##SIGNALS Methods
 func _on_FallZone_body_entered(body):
 	get_tree().change_scene("res://Main.tscn")

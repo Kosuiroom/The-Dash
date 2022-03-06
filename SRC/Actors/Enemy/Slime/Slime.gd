@@ -30,7 +30,6 @@ func _physics_process(delta):
 	
 	move_and_slide(velocity, Vector2.UP)
 
-
 func _on_Timer_timeout():
 	queue_free()
 
@@ -49,4 +48,5 @@ func _on_Timer_timeout():
 #		$Timer.start()
 
 func _on_dmgCheck_body_entered(body):
-	body.takeDmg()
+	if body.name == "Player":
+		body.takeDmg()

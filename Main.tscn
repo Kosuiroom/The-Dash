@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://SRC/Actors/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Test/Pixel Adventure 1/Background/Brown.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://SRC/UI_Elements/InGameUI/PlayerUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SRC/LevelObjects/DashOrb/DashOrb.tscn" type="PackedScene" id=8]
 [ext_resource path="res://SRC/UI_Elements/InGameUI/HealthBar/HealthBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://SRC/LevelObjects/BreakablePlatforms/Fungi Forest - BreakablePlatform.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.332, 302.877 )
@@ -65,6 +66,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PlayerUI" parent="." instance=ExtResource( 7 )]
+
+[node name="Healthbar" parent="PlayerUI" instance=ExtResource( 9 )]
+position = Vector2( 107, 24 )
+scale = Vector2( 2.05405, 2.02941 )
+
 [node name="WallLeft" type="StaticBody2D" parent="."]
 position = Vector2( 0, 48 )
 
@@ -97,16 +104,13 @@ position = Vector2( 535.143, 555.36 )
 position = Vector2( 614.219, 635.558 )
 
 [node name="DashOrb" parent="." instance=ExtResource( 8 )]
-position = Vector2( 609, 539 )
+position = Vector2( 446, 529 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 250, 517 )
 
-[node name="PlayerUI" parent="." instance=ExtResource( 7 )]
-
-[node name="Healthbar" parent="PlayerUI" instance=ExtResource( 9 )]
-position = Vector2( 107, 24 )
-scale = Vector2( 2.05405, 2.02941 )
+[node name="Breakable Platform" parent="." instance=ExtResource( 10 )]
+position = Vector2( 328, 556 )
 
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]
 [connection signal="health_update" from="Player" to="PlayerUI/Healthbar" method="_on_Player_health_update"]
